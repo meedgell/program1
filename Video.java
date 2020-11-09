@@ -60,7 +60,7 @@ public class Video extends Media
     return super.toString() + "\nSupporting Artists: " + supportingArtists.toString() + 
       "\nNumber of Actors: " + numActors + 
       "\nDirector: " + director.toString() + 
-      "\nRating: " + rating ;
+      "\nRating: " + rating;
   }
   
   //Print Methods
@@ -83,5 +83,14 @@ public class Video extends Media
   public void printRating
   {
     System.out.print(rating);
+  }
+  
+  //PlayMedia
+  public void playMedia()
+  {
+    super.playMedia();
+    System.out.println("Featuring: " + supportingArtists.toString());
+    System.out.println("Directed by: " + director.toString());
+    System.out.println("MPA rating: " + rating);
   }
 }
