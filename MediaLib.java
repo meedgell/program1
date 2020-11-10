@@ -5,6 +5,10 @@
  * @Uses Audio/CD, Video/DVD, Artist and Media classes 
  */
  
+
+//each class either needs to prompt the user for the data fields 
+//OR each person needs to supply the code to get the fields
+
 import java.util.Scanner;
 
 public class MediaLib {
@@ -14,7 +18,7 @@ public class MediaLib {
   int mediaCount = 0;
   int artCount = 0;
   int input = 0;
-  Scanner sc = new Scanner(System.int);
+  Scanner sc = new Scanner(System.in);
   
   public void main(String[] args) {
     
@@ -27,7 +31,7 @@ public class MediaLib {
                        "Display Number of Plays: " + "\t" + "7" + "\n" + 
                        "Exit: " + "\t" + "8" + "\n" + 
                        "Enter Choice: ");
-    input = sc.netInt();
+    input = sc.nextInt();
     
     switch(input) {
       case 1:
@@ -40,7 +44,8 @@ public class MediaLib {
         listMedia();
         break;
       case 4: 
-        findTitle(); //add method
+        findTitle();  
+        break;
       case 5:
         listArtists(); 
         break;
@@ -50,29 +55,34 @@ public class MediaLib {
       case 7:
         getNumOfPlays(); 
         break;
-      case 8: 
-        //exit
-        break;
     }                
    }
 
   public void addCD() {
-    System.out.println("Enter the title of the song.");
+    System.out.println("Enter the title of the CD.");
     String title = sc.nextLine();
     System.out.println("Enter the artist's first name.");
     String first = sc.next();
     System.out.println("Enter the artist's last name.");
     String last = sc.next();
     
-    //addArtist();
+    //addArtist(); need method to determine if artist is already in the array 
+    //by writing an equals in Artist and then calling the equals (in MediaLib)
       
     mediaLib[mediaCount] = new CD();
     mediaCount++;
   }
   
+  public void findTitle() {
+    System.out.println("Enter title: ");
+    String title = sc.nextLine();
+    int index = searchLib(title);
+    System.out.println(mediaLib[index].toString()); 
+  }
+  
   public void addDVD() {
-    myArtists[mediaCount] = new DVD();
-    mediaCOunt++;
+    mediaLib[mediaCount] = new DVD();
+    mediaCount++;
   }
   
   public void addArtist(Artist artist) {
@@ -87,7 +97,22 @@ public class MediaLib {
     }
     
     if(artistIn==false) {
-      myArtists[artCount] = new Artist() //add artist params
+      String first;
+      String last;
+      Date dob = new Date();;
+      String th;
+      String url;
+      System.out.println("Enter the artist's first name: ");
+      first = sc.next();
+      System.out.println("Enter last name: ");
+      last = sc.next();
+      System.out.println("Enter the date of birth: ");
+      dob.getDate();
+      System.out.println("Enter the twitter handle: ");
+      th = sc.next();
+      System.out.println("Enter the artist's url: ");
+      url = sc.next();
+      myArtists[artCount] = new Artist(first, last, dob, th, url); 
       artCount++;
     }
   }
@@ -99,7 +124,7 @@ public class MediaLib {
   }
   
   public void listArtists() {
-    for(int i = 0; i < myArtists.length; i++`) {
+    for(int i = 0; i < myArtists.length; i++) {
       System.out.println(myArtists[i].toString() + "\n");
     }
   }
@@ -108,13 +133,55 @@ public class MediaLib {
     System.out.println("Artist: " + media.getArtist());
   }
   
-  public void play(Media media) {
-    media.playMedia();
+  public void playMedia() {
+    
+    String title;
+    
+    System.out.println ("Enter the title: ");
+    title = sc.nextLine();
+    
+    
+    int index = searchLib(title);
+    
+    if(index == -1) {
+      System.out.println("Title not found.");
+    }
+    
+    else {
+     mediaLib[index].playMedia();
+    }
+    
+     //mediaLib[index].playMedia
+    //search mediaLib for title and when it's found ^
+    //write method to search mediaLib
+ 
     
   }
   
-  public void getNumOfPlays(Media media) {
-    media.getNumOfPlays();
+  public void getNumOfPlays() {
+    String mediaType;
+    String title;
+    System.out.println("Enter the media type: " );
+    mediaType = sc.nextLine();
+    System.out.println("Enter the title: " );
+    title = sc.next();
+    
+    getNumOfPlays();
+  }
+  
+  public int searchLib(String title) {
+    int index = 0;
+    for(int i = 0; i<mediaLib.length; i++) {
+      if(title == mediaLib[i].getTitle()) {
+        index = i;
+      }
+      
+      else{
+        index = -1; //title not found
+      }
+    }
+    
+    return index;
   }
   
 }

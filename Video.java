@@ -16,7 +16,7 @@ public class Video extends Media
   
   public Video (String title, Artist majorArtist, int playTime, int numPlays, Artist[] sa, int na, Artist dir, String rate)
   {
-    super (title, majorArtist, playTime, numPlays);
+    super (majorArtist, numPlays, title, playTime); //rearranged params to match Media's constructor params
     supportingArtists = sa;
     numActors = na;
     director = dir;
@@ -27,10 +27,10 @@ public class Video extends Media
     //Null Constructor
   {
     super();
-    supportingArtists = new Artist[];
-    numActors = 0;
-    director = new Artist();
-    rating = " ";
+    //supportingArtists = new Artist[];
+    //numActors = 0;
+    //director = new Artist();
+    //rating = " ";
   }
   
   //Accessors
@@ -46,7 +46,7 @@ public class Video extends Media
   
   public Artist getDirector()
   {
-    return director
+    return director;
   }
   
   public String getRating()
@@ -60,28 +60,37 @@ public class Video extends Media
     return super.toString() + "\nSupporting Artists: " + supportingArtists.toString() + 
       "\nNumber of Actors: " + numActors + 
       "\nDirector: " + director.toString() + 
-      "\nRating: " + rating ;
+      "\nRating: " + rating;
   }
   
   //Print Methods
   
-  public void printSupportingArtists
+  public void printSupportingArtists()
   {
     System.out.print(supportingArtists.toString());
   }
   
-  public void printNumActors
+  public void printNumActors() //add parens for all methods
   {
     System.out.print(numActors);
   }
   
-  public void printDirector
+  public void printDirector()
   {
     System.out.print(director.toString());
   }
   
-  public void printRating
+  public void printRating()
   {
     System.out.print(rating);
+  }
+  
+  //PlayMedia
+  public void playMedia()
+  {
+    super.playMedia();
+    System.out.println("Featuring: " + supportingArtists.toString());
+    System.out.println("Directed by: " + director.toString());
+    System.out.println("MPA rating: " + rating);
   }
 }
