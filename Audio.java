@@ -31,25 +31,15 @@ public class Audio extends Media {
     public Artist getProducer() {return producer;}
     
     //toString method
-    //contains all data members
     public String toString(){
       return super.toString() + "\nGroup Members: " + groupMembers +
      "\nNumber of Members: " + numMems + "\nProducer" + producer;
   }
     
-    //print method
-    public void printGroupMembers()
-    {
-      System.out.println(groupMembers.toString());
-    }
-    
-    public void printNumMems()
-    {
-      System.out.println(numMems.toString());
-    }
-    
-    public void printProducer()
-    {
-      System.out.println(producer.toString());
+    //playMedia method
+    public void playMedia(){
+      return super.playMedia();
+      System.out.println("Group members include" + groupMembers);
+      System.out.println("Produced by" + producer);
     }
 }

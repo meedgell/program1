@@ -33,7 +33,6 @@ public class CD extends Audio {
     public String getTitle(){return Title;} 
     
     //toString method
-    //contains all data members
     public string toString(){
       return super.toString() + "\nSong Title: " + songTitles +
      "\nPlay Time: " + playTime + "\nNumber of Titles:" + numTitles;
@@ -41,8 +40,8 @@ public class CD extends Audio {
     
     //playMedia method
     public void playMedia(){
-      return super.playMedia() + "/nNow playing CD:" + 
-      + "\nSong Title: " + songTitles +
-     "\nPlay Time: " + playTime;
+      return super.playMedia();
+      System.out.println( "Now playing:" + songTitles);
+      System.out.println("Play time" + playTime);
     }
 }
