@@ -7,13 +7,20 @@ Artist Class of Media Library Application
 
 //package artist;
 
+import java.util.Scanner;
+import java.io.IOException;
+
 public class Artist {
     
 private String first;
 private String last;
-private Date birthDate;
+private Date birthDate=new Date();
 private String twitterHandle;
 private String url;
+
+private Boolean go;
+
+Scanner sc1 = new Scanner(System.in);
 
 public Artist (String f, String l,Date bD,String tH,String u)
 {
@@ -64,23 +71,43 @@ url="";
 
 public Artist ()
 {
-first="";
-last="";
-//birthDate;
-twitterHandle="";
-url="";
-}
+System.out.println("Artist Entry");
 
-//Mutators
+System.out.print("First Name:");  
+first=sc1.nextLine();
 
-///...
+System.out.print("Last Name:");
+last=sc1.nextLine();
 
-//
-public void getArtist()
+go=false;
+
+while (!go)
+{try
 {
-    // Allows data input from keyboard
-    //probably not needed
+    System.out.println("Date of Birth(mm/dd/yyyy):");
+    birthDate.getDate();
+    go=true;
 }
+    catch (Exception ex)
+{
+    System.out.println(ex.getMessage());
+    System.err.println(ex);
+    go=false;
+    System.out.println("Illegal value entered please re-enter");
+}
+}                 
+                   
+                   
+                   
+                   
+System.out.print("Twitt Handle:");
+twitterHandle=sc1.next();
+
+System.out.print("URL:");
+url=sc1.next();
+}
+
+
         
 //accessors
 
@@ -117,6 +144,9 @@ public String toString()
     return "Name: " + first + " " + last + "\nBirthdate: " + birthDate +"\ntwitterHandle: "+twitterHandle+"\nURL: "+url;
 }
   
-
+public boolean equals(Artist a1)
+    {
+     return ( birthDate.equals(a1.getBirthDate()) && last.equals(a1.getLast()) && first.equals(a1.getFirst())&& url.equals(a1.getUrl())&& twitterHandle.equals(a1.getTwitterHandle()));
+    }
     
 }
