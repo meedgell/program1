@@ -5,7 +5,7 @@ Artist Class of Media Library Application
 11/08/2020
  */
 
-//package artist;
+package medialib;
 
 import java.util.Scanner;
 import java.io.IOException;
@@ -90,7 +90,7 @@ while (!go)
 }
     catch (Exception ex)
 {
-    System.out.println(ex.getMessage());
+    //System.out.println(ex.getMessage());
     System.err.println(ex);
     go=false;
     System.out.println("Illegal value entered please re-enter");
@@ -144,7 +144,7 @@ public String toString()
     return "Name: " + first + " " + last + "\nBirthdate: " + birthDate +"\ntwitterHandle: "+twitterHandle+"\nURL: "+url;
 }
   
-public boolean equals(Artist a1)
+public boolean Aequals(Artist a1)
     {
      return ( birthDate.equals(a1.getBirthDate()) && last.equals(a1.getLast()) && first.equals(a1.getFirst())&& url.equals(a1.getUrl())&& twitterHandle.equals(a1.getTwitterHandle()));
     }
