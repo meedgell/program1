@@ -67,11 +67,11 @@ public class CD extends Audio {
       for(int i = 0; i < songTitles.length; i++) { //iterate through songTitles array 
       numTitles++;  //keeps count of song titles
       }
-      System.out.println(numTitles.toString());
+      System.out.println(numTitles);
     }
     
     public void printPlayTime()
     {
-      System.out.println(playTime.toString());
+      System.out.println(playTime);
     }
 }

@@ -67,7 +67,7 @@ public class Audio extends Media {
       for(int i = 0; i < groupMembers.length; i++) {  
       numMems++;  
       }
-      System.out.println(numMems.toString());
+      System.out.println(numMems);
     }
     
     public void printProducer()
