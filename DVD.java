@@ -1,7 +1,7 @@
 /*DVD.java
  * Application Project 1 - DVD Component
- * Author: Edward France
- * Date: 11/5/2020
+ * @Author: Edward France
+ * @Version: 11/5/2020
  * Inherits from Video
  */
 
@@ -23,10 +23,24 @@ public class DVD extends Video
   //Null Constructor
   public DVD()
   {
+    char ws = ' ', tv = ' ';
     super();
-    wideScreenFormat = false;
-    tvFormat = false;
-    soundOptions = " ";
+    System.out.println("Is the DVD formatted to widescreen? Y/N ");
+    ws = sc.next().charAt(0);
+    ws = Character.toUpperCase(ws);
+    if(ws == 'Y')
+      wideScreenFormat = true;
+    else
+      wideScreenFormat = false;
+    System.out.println("Is the DVD formatted for TV screens? Y/N ");
+    tv = sc.next().chatAt(0);
+    tv = Character.toUpperCase(tv);
+    if(tv == 'Y')
+      tvFormat = true;
+    else
+      tvFormat = false;
+    System.out.println("Enter the selected sound options: ");
+    soundOptions = sc.next();
   }
   
   //Accessors
