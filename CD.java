@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 //CD.java
 //Media application project
 
@@ -22,6 +24,8 @@ public class CD extends Audio {
   {
     super();
     Scanner sc = new Scanner(System.in);
+    System.out.println("Please enter the numer of song titles");
+    numTitles = sc.nextInt();
     System.out.println("Please enter the song title you wish to play");
     for(int i = 0; i < numTitles.length; i++) {  //continue asking for titles until number of titles is reached
     songTitles[i] = sc.nextLine();
@@ -45,7 +49,7 @@ public class CD extends Audio {
     //playMedia method
     public void playMedia(){
       super.playMedia();
-        System.out.println("/nNow playing CD:" + 
+        System.out.println("/nNow playing on CD:" + 
        "\nSong Title: " + songTitles +
      "\nPlay Time: " + playTime); 
       
@@ -61,9 +65,9 @@ public class CD extends Audio {
     {
       numTitles=0; 
       for(int i = 0; i < songTitles.length; i++) { //iterate through songTitles array 
-        numTitles++;  //keeps count of song titles
+      numTitles++;  //keeps count of song titles
       }
-      System.out.println(titleCount);
+      System.out.println(numTitles.toString());
     }
     
     public void printPlayTime()

@@ -24,12 +24,14 @@ public class Audio extends Media {
   {
     super();
     Scanner sc = new Scanner(System.in);
+    System.out.println("Enter the number of group members in the band");
+    numMems = sc.nextInt();
     System.out.println("Please enter the names of the group members in the band");
     for(int i = 0; i < groupMembers.length; i++) {  
-    groupMembers[i] = sc.nextLine();
+    groupMembers[i] = new Artist();
     }
     System.out.println("Please enter the name of the album producer");
-    producer = sc.nextLine();
+    producer = new Artist();
 
   }
        
@@ -44,6 +46,15 @@ public class Audio extends Media {
      "\nNumber of Members: " + numMems + "\nProducer" + producer;
   }
     
+    //playMedia method
+    public void playMedia(){
+      super.playMedia();
+        System.out.println( 
+       "\nGroup Members: " + groupMembers +
+     "\nProduced by: " + producer); 
+      
+    }
+    
     //print method
     public void printGroupMembers()
     {
@@ -56,7 +67,7 @@ public class Audio extends Media {
       for(int i = 0; i < groupMembers.length; i++) {  
       numMems++;  
       }
-      System.out.println(memCount);
+      System.out.println(numMems.toString());
     }
     
     public void printProducer()
