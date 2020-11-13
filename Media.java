@@ -64,17 +64,16 @@ public void setNumOfPlays(int aNumOfPlays)
   title = aTitle;
  }
 
-public void playMedia()
-  { 
-    String title, majorArtist, mediaType; 
-      
-    System.out.print("Enter artist: ");
-    majorArtist = sc.nextLine();
-    System.out.println ("Enter the title: ");
-    title = sc.nextLine();
-    System.out.println("Enter the media type: ");
-    mediaType = sc.nextLine();
-  
+  public void playMedia()
+  {
+    System.out.println("Now Playing: " + title);
+    System.out.println("By: " + artist.toString());
+    if(instanceof CD)
+      System.out.println("On CD");
+    if(instanceof DVD)
+      System.out.println("On DVD");
+    System.out.println("Number of plays: " + numPlays);
+    numPlays++;
   }
   
 public String toString() {
