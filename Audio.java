@@ -1,19 +1,20 @@
 //Audio.java
 //Media application project
 
+import java.util.Scanner;
+
 public class Audio extends Media {
   
   //data members
   private Artist groupMembers[];
   private int numMems;
-  private Artist producer; //changed from Artist producer[] -> Artist producer (I'm guessing there is only 1 producer?)
+  private Artist producer; 
   
   //constructors
   public Audio (Artist artist, int numOfPlays, String title, int playTime, Artist[] gMem, int nMem, Artist prod)
   {
-    //changed from Artist gMem -> Artist[] gMem in params
     
-    super(artist, numOfPlays, title, playTime);
+    super(title, artist, numOfPlays, playTime);
     groupMembers = gMem;
     numMems = nMem;
     producer = prod;
@@ -21,24 +22,38 @@ public class Audio extends Media {
   
   public Audio() //null constructor
   {
-    //I think you don't need the other data member declarations in a null constructor
     super();
-    //groupMembers = new Artist[];
-    //numMems = 0;
-    //producer = new Artist[];
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Enter the number of group members in the band");
+    numMems = sc.nextInt();
+    System.out.println("Please enter the names of the group members in the band");
+    for(int i = 0; i < groupMembers.length; i++) {  
+    groupMembers[i] = new Artist();
+    }
+    System.out.println("Please enter the name of the album producer");
+    producer = new Artist();
+
   }
        
   //accessors 
-    public Artist[] getGroupMembers() {return groupMembers;} //changed return type from Artist -> Artist[]
+    public Artist[] getGroupMembers() {return groupMembers;}
     public int getNumMems() {return numMems;}
     public Artist getProducer() {return producer;}
     
     //toString method
-    //contains all data members
     public String toString(){
       return super.toString() + "\nGroup Members: " + groupMembers +
      "\nNumber of Members: " + numMems + "\nProducer" + producer;
   }
+    
+    //playMedia method
+    public void playMedia(){
+      super.playMedia();
+        System.out.println( 
+       "\nGroup Members: " + groupMembers +
+     "\nProduced by: " + producer); 
+      
+    }
     
     //print method
     public void printGroupMembers()
@@ -46,14 +61,13 @@ public class Audio extends Media {
       System.out.println(groupMembers.toString());
     }
     
-    public void printNumMems()
+    public void printNumMems(int numMems)
     {
-      int memCount=0; //added variable to keep count
-      for(int i = 0; i < groupMembers.length; i++) { //added this loop to iterate through groupMember array 
-        memCount++;  //keeps count of groupMembers
+      numMems=0; 
+      for(int i = 0; i < groupMembers.length; i++) {  
+      numMems++;  
       }
-      System.out.println(memCount);
-      //System.out.println(numMems.toString());
+      System.out.println(numMems); //don't need toString bc numMems is an int
     }
     
     public void printProducer()

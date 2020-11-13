@@ -1,12 +1,17 @@
 /* Video.java
  * Application Project 1 - Video Component
- * Author: Edward France
- * Date: 11/4/2020
+ * @Author: Edward France
+ * @Version: 11/11/2020
  * Inherits from Media.
  */
 
+//Unsure if this needs to be imported here or higer up in the hierarchy.
+import java.util.Scanner;
+
 public class Video extends Media
 {
+  static Scanner sc = new Scanner(System.in);
+  
   private Artist[] supportingArtists;
   private int numActors;
   private Artist director;
@@ -16,7 +21,7 @@ public class Video extends Media
   
   public Video (String title, Artist majorArtist, int playTime, int numPlays, Artist[] sa, int na, Artist dir, String rate)
   {
-    super (majorArtist, numPlays, title, playTime); //rearranged params to match Media's constructor params
+    super (title, majorArtist, playTime, numPlays);
     supportingArtists = sa;
     numActors = na;
     director = dir;
@@ -27,10 +32,13 @@ public class Video extends Media
     //Null Constructor
   {
     super();
-    //supportingArtists = new Artist[];
-    //numActors = 0;
-    //director = new Artist();
-    //rating = " ";
+    supportingArtists = fillSupportingArtists();
+    System.out.println("Enter the number of actors: ");
+    numActors = sc.nextInt();
+    System.out.println("Enter the director: ");
+    director = new Artist();
+    System.out.println("Enter the MPA rating: ");
+    rating = sc.next();
   }
   
   //Accessors
@@ -70,17 +78,17 @@ public class Video extends Media
     System.out.print(supportingArtists.toString());
   }
   
-  public void printNumActors() //add parens for all methods
+  public void printNumActors() //add parens
   {
     System.out.print(numActors);
   }
   
-  public void printDirector()
+  public void printDirector ()
   {
     System.out.print(director.toString());
   }
   
-  public void printRating()
+  public void printRating ()
   {
     System.out.print(rating);
   }
@@ -93,4 +101,17 @@ public class Video extends Media
     System.out.println("Directed by: " + director.toString());
     System.out.println("MPA rating: " + rating);
   }
+  //Other Methods
+  public Artist[] fillSupportingArtists()
+  {
+    int numArray;
+    Artist[] supportingArtists = new Artist[50]; //initialize to 50?
+    System.out.println("Please enter the number of supporting Artists: ");
+    numArray = sc.nextInt();
+    for(int i = 0; i < numArray; i++)
+    {
+      supportingArtists[i] = new Artist();
+    }
+    return supportingArtists;
+}
 }

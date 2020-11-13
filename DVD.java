@@ -1,7 +1,7 @@
 /*DVD.java
  * Application Project 1 - DVD Component
- * Author: Edward France
- * Date: 11/5/2020
+ * @Author: Edward France
+ * @Version: 11/5/2020
  * Inherits from Video
  */
 
@@ -9,7 +9,8 @@ public class DVD extends Video
 {
   private boolean wideScreenFormat;
   private boolean tvFormat;
-  private String soundOptions; //Changed type to capital S String
+  private String soundOptions; //capital S String
+  private int artCount; //added for artist methods
   
   //Constructor
   public DVD (String title, Artist majorArtist, int playTime, int numPlays, Artist[] sa, int na, Artist dir, String rate, boolean widescreen, boolean tv, String so)
@@ -21,12 +22,29 @@ public class DVD extends Video
   }
   
   //Null Constructor
-  public DVD()
+  public DVD(Artist[] myArtists) //adding artist collection as param based on prof reccommendation
   {
-    super();
-    wideScreenFormat = false;
-    tvFormat = false;
-    soundOptions = " ";
+    super(); //super needs to be first call in constructor 
+    char ws = ' ', tv = ' ';
+    System.out.println("Is the DVD formatted to widescreen? Y/N ");
+    ws = sc.next().charAt(0);
+    ws = Character.toUpperCase(ws);
+    if(ws == 'Y')
+      wideScreenFormat = true;
+    else
+      wideScreenFormat = false;
+    System.out.println("Is the DVD formatted for TV screens? Y/N ");
+    tv = sc.next().charAt(0); //corrected spelling on charAt
+    tv = Character.toUpperCase(tv);
+    if(tv == 'Y')
+      tvFormat = true;
+    else
+      tvFormat = false;
+    System.out.println("Enter the selected sound options: ");
+    soundOptions = sc.next();
+    
+   //need to have user enter in the artists
+    //this is where you call addArtist and checkArtist
   }
   
   //Accessors
@@ -41,7 +59,7 @@ public class DVD extends Video
     return tvFormat;
   }
   
-  public String getSoundOptions() //capital S for return type String
+  public String getSoundOptions() //capital S String
   {
     return soundOptions;
   }
@@ -49,8 +67,7 @@ public class DVD extends Video
   //ToString
   public String toString()
   {
-    return super.toString() + "\nWidescreen Format: " + wideScreenFormat + "\nTV Format: " + tvFormat + "\nSound Options: " + soundOptions;
-    //removed toString call on wideScreenFormat and tvFormat because they are booleans (True or False)
+    return super.toString() + "\nWidescreen Format: " + wideScreenFormat + "\nTV Format: " + tvFormat + "\nSound Options: " + soundOptions; //removed toString on boolean values
   }
   
   //PlayMedia
@@ -66,18 +83,52 @@ public class DVD extends Video
   //Print Methods
   public void printTVFormat()
   {
-    System.out.println(tvFormat);
-    //removed the toString call because it is a boolean
+    System.out.println(tvFormat); //removed toString call bc boolean value
   }
   
   public void printWidescreenFormat()
   {
-    System.out.println(wideScreenFormat);
-    //removed toString call
+    System.out.println(wideScreenFormat); //removed toString call bc boolean value
   }
   
   public void printSoundOptions()
   {
     System.out.println(soundOptions);
+  }
+  
+   //adding these methods to this class per professor's recommendation
+   /*
+   * Adds a new artist to the myArtists array.
+   * Checks if the artist already exists in the collection before appending.
+   * Uses checkArtist method.
+   */
+  
+  public void addArtist(Artist[] myArtists) {
+     Artist artist = new Artist();
+     boolean unique = checkArtist(artist, myArtists);
+     if(unique == true) {
+       myArtists[artCount] = artist;
+       artCount++;
+     }
+  }
+  
+  /*
+   * Checks if the given artist is already in the myArtists array.
+   * @return boolean unique
+   */
+  //Vince's method 
+  public boolean checkArtist(Artist a1, Artist[] myArtists)
+  {
+    boolean unique; //removed private
+    int i;
+    unique = true;
+    i = 0;
+    
+    while (unique && i <= myArtists.length) //remove brackets
+       {
+         unique=!a1.equals(myArtists[i]);
+         i++;
+       }
+    return unique;
   }
 }
