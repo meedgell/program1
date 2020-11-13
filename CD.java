@@ -21,25 +21,36 @@ public class CD extends Audio {
      playTime = pTime;
   }
   
-  public CD(Artist[] myArtists) //null constructor -added the artist array per professor Tanner's recommendation
+  public CD(Artist[] myArtists, int artCount) //null constructor -added the artist array per professor Tanner's recommendation
   {
-    super();
+    super(myArtists, artCount);
     Scanner sc = new Scanner(System.in);
     System.out.println("Please enter the numer of song titles");
     numTitles = sc.nextInt();
-    System.out.println("Please enter the song title you wish to play");
-    for(int i = 0; i < numTitles; i++) { //don't need .length  //continue asking for titles until number of titles is reached
-    songTitles[i] = sc.nextLine();
+    System.out.println("Please enter the song title");
+    for(int i = 0; i < numTitles; i++) { 
+      songTitles[i] = sc.nextLine();
     }
     System.out.println("Please enter the song's playtime in number of seconds");
     playTime = sc.nextInt();
+    
+    boolean go = true;
+    
+    while(go) {
+      System.out.println("Enter artist first name.");
+      String first = sc.nextLine();
+      System.out.println("Enter last name.");
+      String last = sc.nextLine();
+      
+      
+    }
     
     //need to have user enter in the artists
     //this is where you call addArtist and checkArtist
   }
     
   //accessors
-    public Artist getArtist(){return artist;} //doesn't recognize artist as a variable for some reason? 
+    //public Artist getArtist(){return artist;} 
     public int getnumOfPlays(){return numOfPlays;} 
     public double getplayTime(){return playTime;} 
     public String getTitle(){return title;} 
@@ -77,43 +88,6 @@ public class CD extends Audio {
     public void printPlayTime()
     {
       System.out.println(playTime); //don't need toString 
-    }
-    
-    
-    
-    //adding these methods to this class per professor's recommendation
-   /*
-   * Adds a new artist to the myArtists array.
-   * Checks if the artist already exists in the collection before appending.
-   * Uses checkArtist method.
-   */
-  
-  public void addArtist(Artist[] myArtists) {
-     Artist artist = new Artist();
-     boolean unique = checkArtist(artist, myArtists);
-     if(unique == true) {
-       myArtists[artCount] = artist;
-       artCount++;
-     }
-  }
-  
-  /*
-   * Checks if the given artist is already in the myArtists array.
-   * @return boolean unique
-   */
-  //Vince's method 
-  public boolean checkArtist(Artist a1, Artist[] myArtists)
-  {
-    boolean unique; //removed private
-    int i;
-    unique = true;
-    i = 0;
-    
-    while (unique && i <= myArtists.length) //remove brackets
-       {
-         unique=!a1.equals(myArtists[i]);
-         i++;
-       }
-    return unique;
-  }
+    } 
+ 
 }

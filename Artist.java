@@ -71,13 +71,8 @@ url="";
 
 public Artist ()
 {
-System.out.println("Artist Entry");
 
-System.out.print("First Name:");  
-first=sc1.nextLine();
 
-System.out.print("Last Name:");
-last=sc1.nextLine();
 
 go=false;
 
@@ -97,9 +92,7 @@ while (!go)
 }
 }                 
                    
-                   
-                   
-                   
+                                  
 System.out.print("Twitter Handle:");
 twitterHandle=sc1.next();
 

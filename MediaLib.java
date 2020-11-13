@@ -59,18 +59,16 @@ public class MediaLib {
    * Creates a new CD and adds it to the mediaLib array.
    */
   public void addCD() {    
-    mediaLib[mediaCount] = new CD(myArtists); //pass artist array and have CD class search artist array before adding -> use Vince's method in CD instead of MediaLib
+    mediaLib[mediaCount] = new CD(myArtists, artCount); //pass artist array and have CD class search artist array before adding -> use Vince's method in CD instead of MediaLib
     mediaCount++;
-    //addArtist();
   }
   
   /*
    * Creates a new DVD and adds it to the mediaLib array.
    */
   public void addDVD() {
-    mediaLib[mediaCount] = new DVD(myArtists); //same thing for DVD 
+    mediaLib[mediaCount] = new DVD(myArtists, artCount); //same thing for DVD 
     mediaCount++;
-    //addArtist();
   }
   
   /*

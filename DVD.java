@@ -9,7 +9,7 @@ public class DVD extends Video
 {
   private boolean wideScreenFormat;
   private boolean tvFormat;
-  private String soundOptions; //capital S String
+  private String soundOptions; 
   private int artCount; //added for artist methods
   
   //Constructor
@@ -22,9 +22,9 @@ public class DVD extends Video
   }
   
   //Null Constructor
-  public DVD(Artist[] myArtists) //adding artist collection as param based on prof reccommendation
+  public DVD(Artist[] myArtists, int artCount) 
   {
-    super(); //super needs to be first call in constructor 
+    super(myArtists, artCount); 
     char ws = ' ', tv = ' ';
     System.out.println("Is the DVD formatted to widescreen? Y/N ");
     ws = sc.next().charAt(0);
@@ -34,7 +34,7 @@ public class DVD extends Video
     else
       wideScreenFormat = false;
     System.out.println("Is the DVD formatted for TV screens? Y/N ");
-    tv = sc.next().charAt(0); //corrected spelling on charAt
+    tv = sc.next().charAt(0); 
     tv = Character.toUpperCase(tv);
     if(tv == 'Y')
       tvFormat = true;
@@ -96,21 +96,6 @@ public class DVD extends Video
     System.out.println(soundOptions);
   }
   
-   //adding these methods to this class per professor's recommendation
-   /*
-   * Adds a new artist to the myArtists array.
-   * Checks if the artist already exists in the collection before appending.
-   * Uses checkArtist method.
-   */
-  
-  public void addArtist(Artist[] myArtists) {
-     Artist artist = new Artist();
-     boolean unique = checkArtist(artist, myArtists);
-     if(unique == true) {
-       myArtists[artCount] = artist;
-       artCount++;
-     }
-  }
   
   /*
    * Checks if the given artist is already in the myArtists array.
@@ -131,4 +116,20 @@ public class DVD extends Video
        }
     return unique;
   }
+   //adding these methods to this class per professor's recommendation
+   /*
+   * Adds a new artist to the myArtists array.
+   * Checks if the artist already exists in the collection before appending.
+   * Uses checkArtist method.
+   */
+  
+  public void addArtist(Artist[] myArtists) {
+     Artist artist = new Artist();
+     boolean unique = checkArtist(artist, myArtists);
+     if(unique == true) {
+       myArtists[artCount] = artist;
+       artCount++;
+     }
+  }
+  
 }

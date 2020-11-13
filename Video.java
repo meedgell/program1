@@ -28,15 +28,30 @@ public class Video extends Media
     rating = rate;
   }
   
-  public Video()
+  public Video(Artist[] myArtists, int artCount)
     //Null Constructor
   {
-    super();
+    super(myArtists, artCount);
     supportingArtists = fillSupportingArtists();
     System.out.println("Enter the number of actors: ");
     numActors = sc.nextInt();
+    for(int i = 0; i < numActors; i++) {
+      System.out.println("Enter first name of Actor");
+      String first = sc.nextLine();
+      System.out.println("Enter last name");
+      String last = sc.nextLine();
+      addArtist(first, last, myArtists, artCount);
+    }
     System.out.println("Enter the director: ");
+    System.out.println("Director's first name: ");
+    String dFirst = sc.nextLine();
+    System.out.println("Director's last name");
+    String dLast = sc.nextLine();
+    if(checkArtist(dFirst, dLast, myArtists)) {
     director = new Artist();
+    myArtists[artCount] = director;
+    artCount++;
+    }
     System.out.println("Enter the MPA rating: ");
     rating = sc.next();
   }
@@ -114,4 +129,30 @@ public class Video extends Media
     }
     return supportingArtists;
 }
+     public void addArtist(String first, String last, Artist[] myArtists, int artCount) {
+     boolean unique = checkArtist(first, last, myArtists);
+     if(unique == true) {
+       Artist artist = new Artist();
+       myArtists[artCount] = artist;
+       artCount++;
+     }
+   }
+         /*
+   * Checks if the given artist is already in the myArtists array.
+   * @return boolean unique
+   */
+  public boolean checkArtist(String first, String last, Artist[] myArtists)
+  {
+    boolean unique; 
+    int i;
+    unique = true;
+    i = 0;
+    
+    while (unique && i <= myArtists.length) 
+       {
+         unique=!(first.equals(myArtists[i].getFirst()) && last.equals(myArtists[i].getLast()));
+         i++;
+       }
+    return unique;
+  }
 }
