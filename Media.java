@@ -7,7 +7,7 @@ import java.util.Collection;
 public class Media
 {
   //Changed type from String to Artist
- public String majorArtist;
+ public Artist majorArtist; //change type to Artist
  public int numOfPlays;
  public String title;
  public int playTime;
@@ -16,13 +16,15 @@ public class Media
 Scanner sc = new Scanner(System.in);
  public Media()
  {
-  //artist = "";
-  //numOfPlays = 0;
-  //title = "";
-  //playTime =0;
+  Artist artist = new Artist(); //call artist's new constructor 
+  numOfPlays = 0;
+  System.out.println("Enter the title: "); //needs to prompt for title and playtime
+  title = sc.nextLine();
+  System.out.println("Enter the playtime in seconds: ");
+  playTime = Integer.valueOf(sc.next()); //parse as int
  }
 
- public Media(String aMajorArtist, int aNumOfPlays, String aTitle, int aPlayTime)
+ public Media(String aTitle, Artist aMajorArtist, int aNumOfPlays, int aPlayTime)
  {
   majorArtist = aMajorArtist;
   numOfPlays = aNumOfPlays;
@@ -30,10 +32,10 @@ Scanner sc = new Scanner(System.in);
   playTime = aPlayTime;
  }
 
- public String getMajorArtist() 
+ public Artist getMajorArtist() { //need to change return type needs to be Artist
    return majorArtist;
  }
- public void setMajorArtist(String aMajorArtist) 
+ public void setMajorArtist(Artist aMajorArtist) //need param type to be Artist
  {
   majorArtist = aMajorArtist;
  }
