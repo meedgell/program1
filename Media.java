@@ -1,13 +1,16 @@
-// Media.java
+/* Media.java
+ * @author Solomon Tsehay
+ * @since 11/1/20
+ */
 
-package medialib;
-
+ package mediali;
+ 
 import java.util.Scanner;
 import java.util.Collection;
 public class Media
 {
   //Changed type from String to Artist
- public Artist artist; //changed these to public so thay are visible by other classes
+ public Artist majorArtist; //change type to Artist
  public int numOfPlays;
  public String title;
  public int playTime;
@@ -16,30 +19,30 @@ public class Media
 Scanner sc = new Scanner(System.in);
  public Media()
  {
-     System.out.println("Title of work:");
-  //artist = new Artist();
+     
+  System.out.println("Who made this?");   
+  Artist majorArtist = new Artist(); //call artist's new constructor 
   numOfPlays = 0;
+  System.out.println("Enter the title: "); //needs to prompt for title and playtime
   title = sc.nextLine();
-  //playTime =0;
+  System.out.println("Enter the playtime in seconds: ");
+  playTime = Integer.valueOf(sc.next()); //parse as int
  }
 
- public Media(Artist aArtist, int aNumOfPlays, String aTitle, int aPlayTime)
+ public Media(String aTitle, Artist aMajorArtist, int aNumOfPlays, int aPlayTime)
  {
-   //changed from String aArtist -> Artist aArtist in params
-  artist = aArtist;
+  majorArtist = aMajorArtist;
   numOfPlays = aNumOfPlays;
   title = aTitle;
   playTime = aPlayTime;
  }
 
-
- public Artist getArtist() //Changed return type from String to Artist
- {
-   return artist;
+ public Artist getMajorArtist() { //need to change return type needs to be Artist
+   return majorArtist;
  }
- public void setArtist(Artist aArtist) //Changed param type from String to Artist
+ public void setMajorArtist(Artist aMajorArtist) //need param type to be Artist
  {
-  artist = aArtist;
+  majorArtist = aMajorArtist;
  }
 
  public int getNumOfPlays()
@@ -68,10 +71,10 @@ public void setNumOfPlays(int aNumOfPlays)
 
 public void playMedia()
   { 
-    String title, artist, mediaType; 
+    String title, majorArtist, mediaType; 
       
     System.out.print("Enter artist: ");
-    artist = sc.nextLine();
+    majorArtist = sc.nextLine();
     System.out.println ("Enter the title: ");
     title = sc.nextLine();
     System.out.println("Enter the media type: ");
@@ -82,12 +85,24 @@ public void playMedia()
 public String toString() {
 String result =
  "Title: " + title + 
- "\nArtist: " + artist +
+ "\nArtist: " + majorArtist +
  "\nTime: " + playTime + 
  "\nNumber of plays: " + numOfPlays;
  return result;
 }
 
-//needs an equals
-//equals for title for getNumOfPlays
+// equals
+public boolean equals(Object o)
+    {   boolean eq;
+      if (o instanceof Media)
+      {
+        Media other = (Media) o;
+        eq = super.equals(other) &&
+          other.numOfPlays == numOfPlays && other.playTime == playTime && other.numItems == numItems
+          && other.majorArtist.equals(majorArtist)
+          && other.title.equals(title);
+ }
+        else eq = false;
+ return eq;
+}
 }

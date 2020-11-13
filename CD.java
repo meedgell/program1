@@ -1,17 +1,20 @@
-package medialib;
+package mediali;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 //CD.java
 //Media application project
 
-
 public class CD extends Audio {
   
   //data members
-  private String songTitles[];
+  private String[] songTitles=new String[1];
   private int numTitles;
   private int playTime;
+  private boolean go;
+  private Integer i;
+  private String c;
   
   //constructors
   public CD(Artist artist, int numOfPlays, String title, int playTime, Artist[] gMem, int nMem, 
@@ -27,18 +30,51 @@ public class CD extends Audio {
   {
     super();
     Scanner sc = new Scanner(System.in);
-    System.out.println("Please enter the numer of song titles");
-    numTitles = sc.nextInt();
-    System.out.println("Please enter the song title you wish to play");
-    for(int i = 0; i < numTitles; i++) {  //continue asking for titles until number of titles is reached
-    songTitles[i] = sc.nextLine();
-    }
+   // System.out.println("Please enter the numer of song titles");
+    //numTitles = sc.nextInt();
+   //System.out.println("Please enter the song title you wish to play");
+    //for(int i = 0; i < numTitles; i++) {  //continue asking for titles until number of titles is reached
+    //songTitles[i] = sc.nextLine();
+    //}
+    
+    go=true;
+    i=0;
+    while (go)
+    {
+        System.out.println("A to add track Info or X when complete:");
+        c=sc.next();
+
+        if (c.equals("A"))
+        {
+            
+            System.out.println("track title:");
+            songTitles[i] = sc.nextLine(); 
+            songTitles=Arrays.copyOf(songTitles, songTitles.length+1);
+            i++;
+          
+            
+        }else
+        {
+        go=false;
+        }
+    } 
+    
+    numTitles=i;
+    
+    System.out.println("Please enter the album's playtime in number of seconds");
+    playTime = sc.nextInt();
+    
+    
+    
+    
+    
+    
     System.out.println("Please enter the song's playtime in number of seconds");
     playTime = sc.nextInt();
   }
     
   //accessors
-    public Artist getArtist(){return artist;} 
+    //public Artist getArtist(){return artist;} 
     public int getnumOfPlays(){return numOfPlays;} 
     public double getplayTime(){return playTime;} 
     public String getTitle(){return title;} 

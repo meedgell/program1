@@ -5,7 +5,7 @@ Artist Class of Media Library Application
 11/08/2020
  */
 
-package medialib;
+ package mediali;
 
 import java.util.Scanner;
 import java.io.IOException;
@@ -76,6 +76,14 @@ System.out.println("Artist Entry");
 System.out.print("First Name:");  
 first=sc1.nextLine();
 
+Date dai = new Date(03,06,2008);
+last="";
+birthDate=dai;
+twitterHandle="";
+url="";
+
+
+/*
 System.out.print("Last Name:");
 last=sc1.nextLine();
 
@@ -90,7 +98,7 @@ while (!go)
 }
     catch (Exception ex)
 {
-    //System.out.println(ex.getMessage());
+    System.out.println(ex.getMessage());
     System.err.println(ex);
     go=false;
     System.out.println("Illegal value entered please re-enter");
@@ -100,11 +108,13 @@ while (!go)
                    
                    
                    
-System.out.print("Twitt Handle:");
+System.out.print("Twitter Handle:");
 twitterHandle=sc1.next();
 
 System.out.print("URL:");
 url=sc1.next();
+        
+        */
 }
 
 
@@ -144,7 +154,8 @@ public String toString()
     return "Name: " + first + " " + last + "\nBirthdate: " + birthDate +"\ntwitterHandle: "+twitterHandle+"\nURL: "+url;
 }
   
-public boolean Aequals(Artist a1)
+//make equals on last & first name and dob so user won't have to enter in everything every time 
+public boolean equals(Artist a1)
     {
      return ( birthDate.equals(a1.getBirthDate()) && last.equals(a1.getLast()) && first.equals(a1.getFirst())&& url.equals(a1.getUrl())&& twitterHandle.equals(a1.getTwitterHandle()));
     }

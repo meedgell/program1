@@ -4,7 +4,7 @@
  * Date: 11/4/2020
  * Inherits from Media.
  */
-package medialib;
+package mediali;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -63,7 +63,7 @@ public class Video extends Media
   
   public Video (String title, Artist majorArtist, int playTime, int numPlays, Artist[] sa, int na, Artist dir, String rate)
   {
-    super (majorArtist, numPlays, title, playTime); //rearranged params to match Media's constructor params
+    super (); //rearranged params to match Media's constructor params
     
     supportingArtists = sa;
     numActors = na;

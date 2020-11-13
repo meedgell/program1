@@ -1,11 +1,11 @@
-package medialib;
+ package mediali;
+ 
+ 
 import java.util.Scanner;
 /**
  * Date.java
  * models a date mm/dd/yyyy
  */
-
-
 public class Date
 {
 

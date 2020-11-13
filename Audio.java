@@ -1,21 +1,25 @@
 //Audio.java
 //Media application project
-package medialib;
+package mediali;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Audio extends Media {
   
   //data members
-  private Artist groupMembers[];
+  private Artist[] groupMembers=new Artist[1];
   private int numMems;
   private Artist producer; 
+  private boolean go;
+  private Integer i;
+  private String c;
   
   //constructors
   public Audio (Artist artist, int numOfPlays, String title, int playTime, Artist[] gMem, int nMem, Artist prod)
   {
     
-    super(artist, numOfPlays, title, playTime);
+    super();
     groupMembers = gMem;
     numMems = nMem;
     producer = prod;
@@ -25,12 +29,30 @@ public class Audio extends Media {
   {
     super();
     Scanner sc = new Scanner(System.in);
-    System.out.println("Enter the number of group members in the band");
-    numMems = sc.nextInt();
-    System.out.println("Please enter the names of the group members in the band");
-    for(int i = 0; i < groupMembers.length; i++) {  
-    groupMembers[i] = new Artist();
-    }
+    
+    go=true;
+    i=0;
+    
+    while (go)
+    {
+        System.out.println("A to add Supporting artist or X when complete:");
+        c=sc.next();
+
+        if (c.equals("A"))
+        {
+            groupMembers[i] = new Artist(); 
+            groupMembers=Arrays.copyOf(groupMembers, groupMembers.length+1);
+            i++;
+        }else
+        {
+        go=false;
+        }
+    }  
+    
+    
+    
+    
+    
     System.out.println("Please enter the name of the album producer");
     producer = new Artist();
 

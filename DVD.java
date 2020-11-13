@@ -4,7 +4,7 @@
  * Date: 11/5/2020
  * Inherits from Video
  */
-package medialib;
+package mediali;
 
 import java.util.Scanner;
 
@@ -13,7 +13,7 @@ public class DVD extends Video
   private boolean wideScreenFormat;
   private boolean tvFormat;
   private String soundOptions; //Changed type to capital S String
-   private String b;
+  private String b;
    
   Scanner sc = new Scanner(System.in);
   //Constructor
@@ -31,11 +31,14 @@ public class DVD extends Video
     super();
     
     System.out.println("wideScreenFormat?(Y/N):");
-    b=sc.next().substring(0,0);
+    b=sc.next();
+    System.out.println("you said:"+b);
     wideScreenFormat = YNTF(b);
     
     System.out.println("tvFormat?(Y/N):");
-    b=sc.next().substring(0,0);
+    b=sc.next();
+    System.out.println("you said:"+b);
+    
     tvFormat = YNTF(b);
     
     
@@ -54,10 +57,12 @@ public class DVD extends Video
       
       TF=false;
       
+      System.out.println("Y "+in+" "+(in=="Y"));
+      
       if (in=="Y")
       {TF=true;}
-      else if (in=="N")
-      {TF=false;}
+      //else if (in=="N")
+      //{TF=false;}
           
           
       return TF;
