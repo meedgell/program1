@@ -1,7 +1,7 @@
 /* Video.java
  * Application Project 1 - Video Component
- * Author: Edward France
- * Date: 11/4/2020
+ * @Author: Edward France
+ * @Version: 11/11/2020
  * Inherits from Media.
  */
 package mediali;
@@ -9,9 +9,18 @@ package mediali;
 import java.util.Arrays;
 import java.util.Scanner;
 
+//Unsure if this needs to be imported here or higer up in the hierarchy.
+import java.util.Scanner;
+
 public class Video extends Media
 {
+
+  static Scanner sc = new Scanner(System.in);
+  
+  private Artist[] supportingArtists;
+
   private Artist[] supportingArtists=new Artist[1];
+
   private int numActors;
   private Artist director;
   private String rating;
@@ -71,7 +80,35 @@ public class Video extends Media
     rating = rate;
   }
   
-  
+
+  public Video(Artist[] myArtists, int artCount)
+    //Null Constructor
+  {
+    super(myArtists, artCount);
+    supportingArtists = fillSupportingArtists();
+    System.out.println("Enter the number of actors: ");
+    numActors = sc.nextInt();
+    for(int i = 0; i < numActors; i++) {
+      System.out.println("Enter first name of Actor");
+      String first = sc.nextLine();
+      System.out.println("Enter last name");
+      String last = sc.nextLine();
+      addArtist(first, last, myArtists, artCount);
+    }
+    System.out.println("Enter the director: ");
+    System.out.println("Director's first name: ");
+    String dFirst = sc.nextLine();
+    System.out.println("Director's last name");
+    String dLast = sc.nextLine();
+    if(checkArtist(dFirst, dLast, myArtists)) {
+    director = new Artist();
+    myArtists[artCount] = director;
+    artCount++;
+    }
+    System.out.println("Enter the MPA rating: ");
+    rating = sc.next();
+  }
+
   
   //Accessors
   public Artist[] getSupportingArtists()
@@ -107,7 +144,7 @@ public class Video extends Media
       "\nNumber of Actors: " + numActors + 
       "\nDirector: " + director.toString() + 
       "\nRating: " + rating;
-   
+
   }
   
   //Print Methods
@@ -117,17 +154,28 @@ public class Video extends Media
     System.out.print(supportingArtists.toString());
   }
   
+
+  public void printNumActors() //add parens
   public void printNumActors() //add parens for all methods
+
   {
     System.out.print(numActors);
   }
   
+
+  public void printDirector ()
+
   public void printDirector()
+
   {
     System.out.print(director.toString());
   }
   
+
+  public void printRating ()
+
   public void printRating()
+
   {
     System.out.print(rating);
   }
@@ -140,4 +188,47 @@ public class Video extends Media
     System.out.println("Directed by: " + director.toString());
     System.out.println("MPA rating: " + rating);
   }
+
+  //Other Methods
+  public Artist[] fillSupportingArtists()
+  {
+    int numArray;
+    Artist[] supportingArtists = new Artist[50]; //initialize to 50?
+    System.out.println("Please enter the number of supporting Artists: ");
+    numArray = sc.nextInt();
+    for(int i = 0; i < numArray; i++)
+    {
+      supportingArtists[i] = new Artist();
+    }
+    return supportingArtists;
 }
+     public void addArtist(String first, String last, Artist[] myArtists, int artCount) {
+     boolean unique = checkArtist(first, last, myArtists);
+     if(unique == true) {
+       Artist artist = new Artist();
+       myArtists[artCount] = artist;
+       artCount++;
+     }
+   }
+         /*
+   * Checks if the given artist is already in the myArtists array.
+   * @return boolean unique
+   */
+  public boolean checkArtist(String first, String last, Artist[] myArtists)
+  {
+    boolean unique; 
+    int i;
+    unique = true;
+    i = 0;
+    
+    while (unique && i <= myArtists.length) 
+       {
+         unique=!(first.equals(myArtists[i].getFirst()) && last.equals(myArtists[i].getLast()));
+         i++;
+       }
+    return unique;
+  }
+}
+
+}
+

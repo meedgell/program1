@@ -17,6 +17,28 @@ public class Media
  public int numItems;
  
 Scanner sc = new Scanner(System.in);
+
+ public Media(Artist[] myArtists, int artCount)
+ {
+   System.out.println("Artist Entry");
+
+   System.out.print("First Name:");  
+   String first=sc.nextLine();
+
+   System.out.print("Last Name:");
+   String last=sc.nextLine();
+   
+   if(checkArtist(first, last, myArtists)) {
+     Artist artist = new Artist(first, last); 
+     myArtists[artCount] = artist;
+     artCount++;
+   }
+  numOfPlays = 0;
+  System.out.println("Enter the title: "); 
+  title = sc.nextLine();
+  System.out.println("Enter the playtime in seconds: ");
+  playTime = Integer.valueOf(sc.next()); //parse as int
+  
  public Media()
  {
      
@@ -27,6 +49,7 @@ Scanner sc = new Scanner(System.in);
   title = sc.nextLine();
   System.out.println("Enter the playtime in seconds: ");
   playTime = Integer.valueOf(sc.next()); //parse as int
+
  }
 
  public Media(String aTitle, Artist aMajorArtist, int aNumOfPlays, int aPlayTime)
@@ -37,10 +60,17 @@ Scanner sc = new Scanner(System.in);
   playTime = aPlayTime;
  }
 
+
+ public Artist getMajorArtist() { 
+   return majorArtist;
+ }
+ public void setMajorArtist(Artist aMajorArtist) 
+
  public Artist getMajorArtist() { //need to change return type needs to be Artist
    return majorArtist;
  }
  public void setMajorArtist(Artist aMajorArtist) //need param type to be Artist
+
  {
   majorArtist = aMajorArtist;
  }
@@ -105,4 +135,26 @@ public boolean equals(Object o)
         else eq = false;
  return eq;
 }
+
+
+     /*
+   * Checks if the given artist is already in the myArtists array.
+   * @return boolean unique
+   */
+  public boolean checkArtist(String first, String last, Artist[] myArtists)
+  {
+    boolean unique; //removed private
+    int i;
+    unique = true;
+    i = 0;
+    
+    while (unique && i <= myArtists.length) //remove brackets
+       {
+         unique=!(first.equals(myArtists[i].getFirst()) && last.equals(myArtists[i].getLast()));
+         i++;
+       }
+    return unique;
+  }
+
+
 }

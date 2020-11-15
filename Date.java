@@ -1,6 +1,5 @@
+
  package mediali;
- 
- 
 import java.util.Scanner;
 /**
  * Date.java

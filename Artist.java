@@ -5,6 +5,7 @@ Artist Class of Media Library Application
 11/08/2020
  */
 
+//package artist;
  package mediali;
 
 import java.util.Scanner;
@@ -71,6 +72,7 @@ url="";
 
 public Artist ()
 {
+
 System.out.println("Artist Entry");
 
 System.out.print("First Name:");  
@@ -105,16 +107,11 @@ while (!go)
 }
 }                 
                    
-                   
-                   
-                   
 System.out.print("Twitter Handle:");
 twitterHandle=sc1.next();
 
 System.out.print("URL:");
 url=sc1.next();
-        
-        */
 }
 
 
