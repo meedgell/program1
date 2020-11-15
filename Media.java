@@ -2,6 +2,9 @@
  * @author Solomon Tsehay
  * @since 11/1/20
  */
+
+ package mediali;
+ 
 import java.util.Scanner;
 import java.util.Collection;
 public class Media
@@ -16,7 +19,9 @@ public class Media
 Scanner sc = new Scanner(System.in);
  public Media()
  {
-  Artist artist = new Artist(); //call artist's new constructor 
+     
+  System.out.println("Who made this?");   
+  Artist majorArtist = new Artist(); //call artist's new constructor 
   numOfPlays = 0;
   System.out.println("Enter the title: "); //needs to prompt for title and playtime
   title = sc.nextLine();
@@ -64,16 +69,17 @@ public void setNumOfPlays(int aNumOfPlays)
   title = aTitle;
  }
 
-  public void playMedia()
-  {
-    System.out.println("Now Playing: " + title);
-    System.out.println("By: " + artist.toString());
-    if(instanceof CD)
-      System.out.println("On CD");
-    if(instanceof DVD)
-      System.out.println("On DVD");
-    System.out.println("Number of plays: " + numPlays);
-    numPlays++;
+public void playMedia()
+  { 
+    String title, majorArtist, mediaType; 
+      
+    System.out.print("Enter artist: ");
+    majorArtist = sc.nextLine();
+    System.out.println ("Enter the title: ");
+    title = sc.nextLine();
+    System.out.println("Enter the media type: ");
+    mediaType = sc.nextLine();
+  
   }
   
 public String toString() {
