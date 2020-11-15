@@ -1,4 +1,4 @@
- package mediali;
+// package mediali;
  
  
 import java.util.Scanner;
@@ -231,6 +231,4 @@ public class Date
      return month + "/" + day + "/" + year;
     }
 }
-
-
 

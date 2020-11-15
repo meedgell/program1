@@ -1,6 +1,6 @@
 //Audio.java
 //Media application project
-package mediali;
+//package mediali;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -98,3 +98,4 @@ public class Audio extends Media {
       System.out.println(producer.toString());
     }
 }
+

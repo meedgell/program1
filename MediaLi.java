@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package mediali;
+//package mediali;
 
 import java.util.Scanner;
 

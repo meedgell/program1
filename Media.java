@@ -3,9 +3,10 @@
  * @since 11/1/20
  */
 
- package mediali;
+// package mediali;
  
 import java.util.Scanner;
+import java.util.Arrays;
 import java.util.Collection;
 public class Media
 {
@@ -20,8 +21,8 @@ Scanner sc = new Scanner(System.in);
  public Media()
  {
      
-  System.out.println("Who made this?");   
-  Artist majorArtist = new Artist(); //call artist's new constructor 
+  System.out.println("Who is the major Artist?");   
+  majorArtist = new Artist(); //call artist's new constructor 
   numOfPlays = 0;
   System.out.println("Enter the title: "); //needs to prompt for title and playtime
   title = sc.nextLine();
@@ -83,11 +84,11 @@ public void playMedia()
   }
   
 public String toString() {
-String result =
- "Title: " + title + 
- "\nArtist: " + majorArtist +
- "\nTime: " + playTime + 
- "\nNumber of plays: " + numOfPlays;
+String result = "404 Error";
+// "Title: " + title + 
+// "\nArtist: " + majorArtist.toString() +
+// "\nTime: " + playTime + 
+// "\nNumber of plays: " + numOfPlays;
  return result;
 }
 
@@ -104,5 +105,46 @@ public boolean equals(Object o)
  }
         else eq = false;
  return eq;
+}
+
+public Artist[] multiArtistPrompt(String memT) {
+	 boolean go=true;
+	 Artist[] art = new Artist[1];
+	 String u; //user input
+	    int i=0;
+	    while (go)
+	    {
+	        System.out.println("A to add " + memT + " or X when complete:");
+	        u=sc.next();
+
+	        if (u.equalsIgnoreCase("A"))
+	        {
+	             art[i] = new Artist(); 
+	             art=Arrays.copyOf(art, art.length+1);
+	             //System.out.println("\n" + art[i] + "\n");
+	            i++;
+	        }else
+	        {
+	        go=false;
+	        }
+	    }
+	    
+	    art=Arrays.copyOf(art, art.length-1);   
+	    
+	    //System.out.println("\n" + "art length " + art[0].toString());
+	    
+	    return art;
+}
+
+public String artyMethod(Artist[] artists) {
+String arty;
+arty="";
+for  (int i =0; i<artists.length;i++)
+	  
+ 
+{arty=arty+ artists[i].toString();}
+
+return arty;
+		
 }
 }

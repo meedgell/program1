@@ -14,47 +14,22 @@ public class MediaLib {
   int mediaCount = 0;
   int artCount = 0;
   int input = 0;
-  Scanner sc = new Scanner(System.int);
+  Scanner sc = new Scanner(System.in);
   
-  public void main(String[] args) {
-    
-    System.out.println("Create CD: " + "\t" + "1" + "\n" + 
-                       "Create DVD: " + "\t" + "2" + "\n" + 
-                       "List all Media: " + "\t" + "3" + "\n" + 
-                       "Find title: " + "\t" + "4" + "\n" +
-                       "List major Artist: " + "\t" + "5" + "\n" +
-                       "Play title: " + "\t" + "6" + "\n" + 
-                       "Display Number of Plays: " + "\t" + "7" + "\n" + 
-                       "Exit: " + "\t" + "8" + "\n" + 
-                       "Enter Choice: ");
-    input = sc.netInt();
-    
-    switch(input) {
-      case 1:
-        addCD();
-        break;
-      case 2:
-        addDVD();
-        break;
-      case 3:
-        listMedia();
-        break;
-      case 4: 
-        findTitle(); //add method
-      case 5:
-        listArtists(); 
-        break;
-      case 6:
-        playMedia();
-        break;
-      case 7:
-        getNumOfPlays(); 
-        break;
-      case 8: 
-        //exit
-        break;
-    }                
-   }
+	/*
+	 * public void main(String[] args) {
+	 * 
+	 * System.out.println("Create CD: " + "\t" + "1" + "\n" + "Create DVD: " + "\t"
+	 * + "2" + "\n" + "List all Media: " + "\t" + "3" + "\n" + "Find title: " + "\t"
+	 * + "4" + "\n" + "List major Artist: " + "\t" + "5" + "\n" + "Play title: " +
+	 * "\t" + "6" + "\n" + "Display Number of Plays: " + "\t" + "7" + "\n" +
+	 * "Exit: " + "\t" + "8" + "\n" + "Enter Choice: "); input = sc.netInt();
+	 * 
+	 * switch(input) { case 1: addCD(); break; case 2: addDVD(); break; case 3:
+	 * listMedia(); break; case 4: findTitle(); //add method case 5: listArtists();
+	 * break; case 6: playMedia(); break; case 7: getNumOfPlays(); break; case 8:
+	 * //exit break; } }
+	 */
 
   public void addCD() {
     System.out.println("Enter the title of the song.");
@@ -71,8 +46,8 @@ public class MediaLib {
   }
   
   public void addDVD() {
-    myArtists[mediaCount] = new DVD();
-    mediaCOunt++;
+   // myArtists[mediaCount] = new DVD();
+    mediaCount++;
   }
   
   public void addArtist(Artist artist) {
@@ -87,7 +62,7 @@ public class MediaLib {
     }
     
     if(artistIn==false) {
-      myArtists[artCount] = new Artist() //add artist params
+      myArtists[artCount] = new Artist(); //add artist params
       artCount++;
     }
   }
@@ -99,13 +74,13 @@ public class MediaLib {
   }
   
   public void listArtists() {
-    for(int i = 0; i < myArtists.length; i++`) {
+    for(int i = 0; i < myArtists.length; i++) {
       System.out.println(myArtists[i].toString() + "\n");
     }
   }
   
   public void getArtist(Media media) {
-    System.out.println("Artist: " + media.getArtist());
+    System.out.println("Artist: " + media.getMajorArtist());
   }
   
   public void play(Media media) {

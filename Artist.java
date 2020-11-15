@@ -5,7 +5,7 @@ Artist Class of Media Library Application
 11/08/2020
  */
 
- package mediali;
+// package mediali;
 
 import java.util.Scanner;
 import java.io.IOException;
@@ -126,7 +126,7 @@ public String getUrl()
 
 public String toString()
 {
-    return "Name: " + first + " " + last + "\nBirthdate: " + birthDate +"\ntwitterHandle: "+twitterHandle+"\nURL: "+url;
+    return "Name: " + first + " " + last + "\nBirthdate: " + birthDate +"\ntwitterHandle: "+twitterHandle+"\nURL: "+url + "\n\n";
 }
   
 //make equals on last & first name and dob so user won't have to enter in everything every time 

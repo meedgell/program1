@@ -4,7 +4,7 @@
  * Date: 11/5/2020
  * Inherits from Video
  */
-package mediali;
+//package mediali;
 
 import java.util.Scanner;
 
@@ -17,7 +17,7 @@ public class DVD extends Video
    
   Scanner sc = new Scanner(System.in);
   //Constructor
-  public DVD (String title, Artist majorArtist, int playTime, int numPlays, Artist[] sa, int na, Artist dir, String rate, boolean widescreen, boolean tv, String so)
+  public DVD (String title, Artist majorArtist, int playTime, int numPlays, Artist[] sa, int na, Artist dir, int rate, boolean widescreen, boolean tv, String so)
   {
     super(title, majorArtist, playTime, numPlays, sa, na, dir, rate);
     wideScreenFormat = widescreen;
@@ -32,19 +32,21 @@ public class DVD extends Video
     
     System.out.println("wideScreenFormat?(Y/N):");
     b=sc.next();
-    System.out.println("you said:"+b);
-    wideScreenFormat = YNTF(b);
+    //System.out.println("you said:"+b);
+    wideScreenFormat = YNTF(b.substring(0,1));
     
     System.out.println("tvFormat?(Y/N):");
     b=sc.next();
-    System.out.println("you said:"+b);
+    //System.out.println("you said:"+b);
     
-    tvFormat = YNTF(b);
+    tvFormat = YNTF(b.substring(0,1));
     
     
     
     System.out.println("soundOptions?:");
-    soundOptions = sc.nextLine();
+    soundOptions = sc.next();
+    
+    System.out.println("Print sound options " + soundOptions);
     
     
     
@@ -59,7 +61,7 @@ public class DVD extends Video
       
       //System.out.println("Y "+in+" "+(in.equals("Y")));
       
-      if (in.equals("Y"))
+      if (in.equalsIgnoreCase("Y"))
       {TF=true;}
       //else if (in=="N")
       //{TF=false;}
@@ -88,8 +90,12 @@ public class DVD extends Video
   //ToString
   public String toString()
   {
-    return super.toString() + "\nWidescreen Format: " + wideScreenFormat + "\nTV Format: " + tvFormat + "\nSound Options: " + soundOptions;
+   // return super.toString()		+ "\nWidescreen Format: " + wideScreenFormat + "\nTV Format: " + tvFormat + "\nSound Options: " + soundOptions;
     //removed toString call on wideScreenFormat and tvFormat because they are booleans (True or False)
+
+	      
+	  return "DVD Title: " + title + "\nMajor Artist: " + majorArtist + "\nSupporting Actors: " + "\n" + artyMethod(supportingArtists);
+  
   }
   
   //PlayMedia
