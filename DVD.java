@@ -1,17 +1,34 @@
 /*DVD.java
  * Application Project 1 - DVD Component
+
  * @Author: Edward France
  * @Version: 11/5/2020
  * Inherits from Video
  */
 
+ * Author: Edward France
+ * Date: 11/5/2020
+ * Inherits from Video
+ */
+package mediali;
+
+import java.util.Scanner;
+
+
 public class DVD extends Video
 {
   private boolean wideScreenFormat;
   private boolean tvFormat;
+
   private String soundOptions; 
   private int artCount; //added for artist methods
   
+
+  private String soundOptions; //Changed type to capital S String
+  private String b;
+   
+  Scanner sc = new Scanner(System.in);
+
   //Constructor
   public DVD (String title, Artist majorArtist, int playTime, int numPlays, Artist[] sa, int na, Artist dir, String rate, boolean widescreen, boolean tv, String so)
   {
@@ -22,6 +39,7 @@ public class DVD extends Video
   }
   
   //Null Constructor
+
   public DVD(Artist[] myArtists, int artCount) 
   {
     super(myArtists, artCount); 
@@ -45,6 +63,48 @@ public class DVD extends Video
     
    //need to have user enter in the artists
     //this is where you call addArtist and checkArtist
+
+  public DVD()
+  {
+    super();
+    
+    System.out.println("wideScreenFormat?(Y/N):");
+    b=sc.next();
+    System.out.println("you said:"+b);
+    wideScreenFormat = YNTF(b);
+    
+    System.out.println("tvFormat?(Y/N):");
+    b=sc.next();
+    System.out.println("you said:"+b);
+    
+    tvFormat = YNTF(b);
+    
+    
+    
+    System.out.println("soundOptions?:");
+    soundOptions = sc.nextLine();
+    
+    
+    
+    
+  }
+  
+  public static Boolean YNTF(String in)
+  {
+      Boolean TF;
+      
+      TF=false;
+      
+      System.out.println("Y "+in+" "+(in=="Y"));
+      
+      if (in=="Y")
+      {TF=true;}
+      //else if (in=="N")
+      //{TF=false;}
+          
+          
+      return TF;
+
   }
   
   //Accessors
@@ -59,7 +119,11 @@ public class DVD extends Video
     return tvFormat;
   }
   
+
   public String getSoundOptions() //capital S String
+
+  public String getSoundOptions() //capital S for return type String
+
   {
     return soundOptions;
   }
@@ -67,7 +131,12 @@ public class DVD extends Video
   //ToString
   public String toString()
   {
+
     return super.toString() + "\nWidescreen Format: " + wideScreenFormat + "\nTV Format: " + tvFormat + "\nSound Options: " + soundOptions; //removed toString on boolean values
+
+    return super.toString() + "\nWidescreen Format: " + wideScreenFormat + "\nTV Format: " + tvFormat + "\nSound Options: " + soundOptions;
+    //removed toString call on wideScreenFormat and tvFormat because they are booleans (True or False)
+
   }
   
   //PlayMedia
@@ -83,19 +152,28 @@ public class DVD extends Video
   //Print Methods
   public void printTVFormat()
   {
+
     System.out.println(tvFormat); //removed toString call bc boolean value
+
+    System.out.println(tvFormat);
+    //removed the toString call because it is a boolean
+
   }
   
   public void printWidescreenFormat()
   {
+
     System.out.println(wideScreenFormat); //removed toString call bc boolean value
+
+    System.out.println(wideScreenFormat);
+    //removed toString call
+
   }
   
   public void printSoundOptions()
   {
     System.out.println(soundOptions);
-  }
-  
+  }  
   
   /*
    * Checks if the given artist is already in the myArtists array.
@@ -133,3 +211,6 @@ public class DVD extends Video
   }
   
 }
+
+}
+

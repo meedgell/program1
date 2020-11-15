@@ -2,6 +2,9 @@
  * @author Solomon Tsehay
  * @since 11/1/20
  */
+
+ package mediali;
+ 
 import java.util.Scanner;
 import java.util.Collection;
 public class Media
@@ -14,6 +17,7 @@ public class Media
  public int numItems;
  
 Scanner sc = new Scanner(System.in);
+
  public Media(Artist[] myArtists, int artCount)
  {
    System.out.println("Artist Entry");
@@ -35,6 +39,17 @@ Scanner sc = new Scanner(System.in);
   System.out.println("Enter the playtime in seconds: ");
   playTime = Integer.valueOf(sc.next()); //parse as int
   
+ public Media()
+ {
+     
+  System.out.println("Who made this?");   
+  Artist majorArtist = new Artist(); //call artist's new constructor 
+  numOfPlays = 0;
+  System.out.println("Enter the title: "); //needs to prompt for title and playtime
+  title = sc.nextLine();
+  System.out.println("Enter the playtime in seconds: ");
+  playTime = Integer.valueOf(sc.next()); //parse as int
+
  }
 
  public Media(String aTitle, Artist aMajorArtist, int aNumOfPlays, int aPlayTime)
@@ -45,10 +60,17 @@ Scanner sc = new Scanner(System.in);
   playTime = aPlayTime;
  }
 
+
  public Artist getMajorArtist() { 
    return majorArtist;
  }
  public void setMajorArtist(Artist aMajorArtist) 
+
+ public Artist getMajorArtist() { //need to change return type needs to be Artist
+   return majorArtist;
+ }
+ public void setMajorArtist(Artist aMajorArtist) //need param type to be Artist
+
  {
   majorArtist = aMajorArtist;
  }
@@ -114,6 +136,7 @@ public boolean equals(Object o)
  return eq;
 }
 
+
      /*
    * Checks if the given artist is already in the myArtists array.
    * @return boolean unique
@@ -132,4 +155,6 @@ public boolean equals(Object o)
        }
     return unique;
   }
+
+
 }

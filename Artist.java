@@ -6,6 +6,7 @@ Artist Class of Media Library Application
  */
 
 //package artist;
+ package mediali;
 
 import java.util.Scanner;
 import java.io.IOException;
@@ -72,7 +73,21 @@ url="";
 public Artist ()
 {
 
+System.out.println("Artist Entry");
 
+System.out.print("First Name:");  
+first=sc1.nextLine();
+
+Date dai = new Date(03,06,2008);
+last="";
+birthDate=dai;
+twitterHandle="";
+url="";
+
+
+/*
+System.out.print("Last Name:");
+last=sc1.nextLine();
 
 go=false;
 
@@ -92,7 +107,6 @@ while (!go)
 }
 }                 
                    
-                                  
 System.out.print("Twitter Handle:");
 twitterHandle=sc1.next();
 
