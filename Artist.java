@@ -5,7 +5,7 @@ Artist Class of Media Library Application
 11/08/2020
  */
 
- package mediali;
+package mediali;
 
 import java.util.Scanner;
 import java.io.IOException;
@@ -42,32 +42,7 @@ public Artist (String f, String l,Date bD,String u)
   url=u;
 }
 
-public Artist (String f, String l,Date bD)
-{
-first=f;
-last=l;
-birthDate=bD;
-twitterHandle="";
-url="";
-}
 
-public Artist (String f, String l)
-{
-first=f;
-last=l;
-//birthDate;
-twitterHandle="";
-url="";
-}
-
-public Artist (String f)
-{
-first=f;
-last="";
-//birthDate;
-twitterHandle="";
-url="";
-}
 
 public Artist ()
 {
@@ -76,14 +51,7 @@ System.out.println("Artist Entry");
 System.out.print("First Name:");  
 first=sc1.nextLine();
 
-Date dai = new Date(03,06,2008);
-last="";
-birthDate=dai;
-twitterHandle="";
-url="";
 
-
-/*
 System.out.print("Last Name:");
 last=sc1.nextLine();
 
@@ -114,7 +82,7 @@ twitterHandle=sc1.next();
 System.out.print("URL:");
 url=sc1.next();
         
-        */
+        
 }
 
 
@@ -151,7 +119,7 @@ public String getUrl()
 
 public String toString()
 {
-    return "Name: " + first + " " + last + "\nBirthdate: " + birthDate +"\ntwitterHandle: "+twitterHandle+"\nURL: "+url;
+    return "Name: " + first + " " + last + "\nBirthdate: " + birthDate +"\ntwitterHandle: "+twitterHandle+"\nURL: "+url + "\n\n";
 }
   
 //make equals on last & first name and dob so user won't have to enter in everything every time 

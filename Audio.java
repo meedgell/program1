@@ -8,29 +8,29 @@ import java.util.Scanner;
 public class Audio extends Media {
   
   //data members
-  private Artist[] groupMembers=new Artist[1];
-  private int numMems;
-  private Artist producer; 
+  protected Artist[] groupMembers=new Artist[1];
+  protected int numMems;
+  protected Artist producer; 
   private boolean go;
   private Integer i;
   private String c;
   
   //constructors
-  public Audio (Artist artist, int numOfPlays, String title, int playTime, Artist[] gMem, int nMem, Artist prod)
+  /*public Audio (Artist artist, int numOfPlays, String title, int playTime, Artist[] gMem, int nMem, Artist prod)
   {
     
     super();
     groupMembers = gMem;
     numMems = nMem;
     producer = prod;
-  }
+  }*/
   
   public Audio() //null constructor
   {
     super();
     Scanner sc = new Scanner(System.in);
     
-    go=true;
+    /*go=true;
     i=0;
     
     while (go)
@@ -47,9 +47,9 @@ public class Audio extends Media {
         {
         go=false;
         }
-    }  
+    }*/  
     
-    
+   groupMembers= multiArtistPrompt("Group Members");
     
     
     
@@ -65,9 +65,13 @@ public class Audio extends Media {
     
     //toString method
     public String toString(){
-      return super.toString() + "\nGroup Members: " + groupMembers +
-     "\nNumber of Members: " + numMems + "\nProducer" + producer;
-  }
+        
+      return "404 Error:AudioTostring";
+
+//super.toString() + "\nGroup Members: " + groupMembers + "\nNumber of Members: " + numMems + "\nProducer" + producer;
+  
+    
+    }
     
     //playMedia method
     public void playMedia(){
@@ -98,3 +102,4 @@ public class Audio extends Media {
       System.out.println(producer.toString());
     }
 }
+

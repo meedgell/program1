@@ -11,13 +11,13 @@ public class CD extends Audio {
   //data members
   private String[] songTitles=new String[1];
   private int numTitles;
-  private int playTime;
+  //private int playTime;
   private boolean go;
   private Integer i;
   private String c;
   
   //constructors
-  public CD(Artist artist, int numOfPlays, String title, int playTime, Artist[] gMem, int nMem, 
+  /*public CD(Artist artist, int numOfPlays, String title, int playTime, Artist[] gMem, int nMem, 
                Artist prod, String[] st, int nt, int pt, String sTitle[], int nTitle, int pTime) 
   {
   super(artist, numOfPlays, title, playTime, gMem, nMem, prod);
@@ -25,7 +25,7 @@ public class CD extends Audio {
      numTitles = nTitle;
      playTime = pTime;
   }
-  
+  */
   public CD() //null constructor
   {
     super();
@@ -44,11 +44,11 @@ public class CD extends Audio {
         System.out.println("A to add track Info or X when complete:");
         c=sc.next();
 
-        if (c.equals("A"))
+        if (c.equalsIgnoreCase("A"))
         {
             
-            System.out.println("track title:");
-            songTitles[i] = sc.nextLine(); 
+            System.out.println("Enter track title:");
+            songTitles[i] = sc.next(); //this will only get the first word. We know.
             songTitles=Arrays.copyOf(songTitles, songTitles.length+1);
             i++;
           
@@ -59,18 +59,13 @@ public class CD extends Audio {
         }
     } 
     
+    songTitles=Arrays.copyOf(songTitles, songTitles.length-1);
+    
     numTitles=i;
     
-    System.out.println("Please enter the album's playtime in number of seconds");
-    playTime = sc.nextInt();
+    //System.out.println("Please enter the album's playtime in number of minutes:");
+    //playTime = sc.nextInt();
     
-    
-    
-    
-    
-    
-    System.out.println("Please enter the song's playtime in number of seconds");
-    playTime = sc.nextInt();
   }
     
   //accessors
@@ -81,8 +76,28 @@ public class CD extends Audio {
     
     //toString method
     public String toString(){ 
-      return super.toString() + "\nSong Title: " + songTitles +
-     "\nPlay Time: " + playTime + "\nNumber of Titles:" + numTitles;
+     
+        String titles;
+        titles="";
+        for (int i=0; i<numTitles; i++)
+        {titles=titles+"\n"+songTitles[i];}
+        
+        return "CD Title: " + title + "\nMajor Artist: " + majorArtist 
+                  + "\nproducer: " + producer + "\nTracks("+numTitles+"): " + titles +"\n\n\nGroup Members: \n" + artyMethod(groupMembers)
+                  + "\nPlaytime: " + playTime +  "\nNumber of Plays: " + numOfPlays;
+  
+
+//return "CD Title: " + title + "\nMajor Artist: " + majorArtist 
+                 // + "\nSupporting Actors: " + "\n" + artyMethod(groupMembers);
+              
+              /*super.toString() + "\nSong Title: " + songTitles +
+     "\nPlay Time: " + playTime + "\nNumber of Titles:" + numTitles;*/
+      
+      
+      
+      
+      
+      
   }
     
     //playMedia method

@@ -11,15 +11,15 @@ import java.util.Scanner;
 
 public class Video extends Media
 {
-  private Artist[] supportingArtists=new Artist[1];
-  private int numActors;
-  private Artist director;
-  private String rating;
+  protected Artist[] supportingArtists=new Artist[1];
+  protected int numActors;
+  protected Artist director;
+  protected int rating;
   private boolean go;
   private Integer i;
   private String c;
   
-  Scanner sc = new Scanner(System.in);
+  
   
   //Constructors
   public Video()
@@ -27,41 +27,24 @@ public class Video extends Media
     //Null Constructor
   {
     super();
-    go=true;
-    i=0;
-    while (go)
-    {
-        System.out.println("A to add Supporting artist or X when complete:");
-        c=sc.next();
-
-        if (c.equals("A"))
-        {
-            supportingArtists[i] = new Artist(); 
-            supportingArtists=Arrays.copyOf(supportingArtists, supportingArtists.length+1);
-            i++;
-        }else
-        {
-        go=false;
-        }
-    }  
     
-    supportingArtists=Arrays.copyOf(supportingArtists, supportingArtists.length-1);            
+   Scanner sc = new Scanner(System.in);
+   
+    supportingArtists = multiArtistPrompt("supporting artist");    
 
-    numActors = i;
+    numActors = supportingArtists.length;
     System.out.println("Who is the Director?:");
     director = new Artist();
     
     //System.out.println();
             
     System.out.println("What is the rating?:");
-    rating = sc.nextLine();
-    
-   System.out.println("l");
+    rating = sc.nextInt();
     
   }
   
   
-  public Video (String title, Artist majorArtist, int playTime, int numPlays, Artist[] sa, int na, Artist dir, String rate)
+  /*public Video (String title, Artist majorArtist, int playTime, int numPlays, Artist[] sa, int na, Artist dir, int rate)
   {
     super (); //rearranged params to match Media's constructor params
     
@@ -69,7 +52,7 @@ public class Video extends Media
     numActors = na;
     director = dir;
     rating = rate;
-  }
+  }*/
   
   
   
@@ -89,7 +72,7 @@ public class Video extends Media
     return director;
   }
   
-  public String getRating()
+  public int getRating()
   {
     return rating;
   }
@@ -97,16 +80,14 @@ public class Video extends Media
   //ToString
   public String toString()
   {
-      String Arty;
-      Arty="";
-      for  (int i =0; i<supportingArtists.length;i++)
-          
-      {Arty=Arty+supportingArtists[i].toString();}
+
       
-    return super.toString()  +"\nSupporting Artists: " + Arty + 
+    return "404 Error:VideoTostring";
+            
+            /*super.toString()+"\nSupporting Artists: " + Arty + 
       "\nNumber of Actors: " + numActors + 
       "\nDirector: " + director.toString() + 
-      "\nRating: " + rating;
+      "\nRating: " + rating;*/
    
   }
   

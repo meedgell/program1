@@ -27,7 +27,7 @@ public class MediaLi {
         //CD disc=new CD();
         
         CD disc=new CD();
-        
+        System.out.println("\n\n\n\n\n\n");
          System.out.println(disc.toString());
         
         
