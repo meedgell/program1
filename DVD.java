@@ -4,7 +4,7 @@
  * Date: 11/5/2020
  * Inherits from Video
  */
-//package mediali;
+package mediali;
 
 import java.util.Scanner;
 
@@ -17,13 +17,13 @@ public class DVD extends Video
    
   Scanner sc = new Scanner(System.in);
   //Constructor
-  public DVD (String title, Artist majorArtist, int playTime, int numPlays, Artist[] sa, int na, Artist dir, int rate, boolean widescreen, boolean tv, String so)
+  /*public DVD (String title, Artist majorArtist, int playTime, int numPlays, Artist[] sa, int na, Artist dir, int rate, boolean widescreen, boolean tv, String so)
   {
     super(title, majorArtist, playTime, numPlays, sa, na, dir, rate);
     wideScreenFormat = widescreen;
     tvFormat = tv;
     soundOptions = so;
-  }
+  }*/
   
   //Null Constructor
   public DVD()
@@ -94,7 +94,10 @@ public class DVD extends Video
     //removed toString call on wideScreenFormat and tvFormat because they are booleans (True or False)
 
 	      
-	  return "DVD Title: " + title + "\nMajor Artist: " + majorArtist + "\nSupporting Actors: " + "\n" + artyMethod(supportingArtists);
+	  return "DVD Title: " + title + "\nMajor Artist: " + majorArtist 
+                  + "\nDirector: " + director + "\nSupporting Actors("+numActors+"): " + "\n" + artyMethod(supportingArtists)
+                  + "\nRating: " + rating+ "\nPlaytime: " + playTime+ "\nSoundO Options: " + soundOptions+ "\nWide Screen: " 
+                  + wideScreenFormat + "\nTV format: " + tvFormat+ "\nNumber of Plays: " + numOfPlays;
   
   }
   

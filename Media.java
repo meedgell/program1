@@ -3,7 +3,7 @@
  * @since 11/1/20
  */
 
-// package mediali;
+package mediali;
  
 import java.util.Scanner;
 import java.util.Arrays;
@@ -15,7 +15,7 @@ public class Media
  public int numOfPlays;
  public String title;
  public int playTime;
- public int numItems;
+ //public int numItems;
  
 Scanner sc = new Scanner(System.in);
  public Media()
@@ -26,7 +26,7 @@ Scanner sc = new Scanner(System.in);
   numOfPlays = 0;
   System.out.println("Enter the title: "); //needs to prompt for title and playtime
   title = sc.nextLine();
-  System.out.println("Enter the playtime in seconds: ");
+  System.out.println("Enter the playtime in minutes: ");
   playTime = Integer.valueOf(sc.next()); //parse as int
  }
 
@@ -70,17 +70,28 @@ public void setNumOfPlays(int aNumOfPlays)
   title = aTitle;
  }
 
-public void playMedia()
-  { 
-    String title, majorArtist, mediaType; 
-      
-    System.out.print("Enter artist: ");
-    majorArtist = sc.nextLine();
-    System.out.println ("Enter the title: ");
-    title = sc.nextLine();
-    System.out.println("Enter the media type: ");
-    mediaType = sc.nextLine();
-  
+  //PlayMedia
+
+  public void playMedia()
+
+  {
+
+    System.out.println("Now Playing: " + title);
+
+    System.out.println("By: " + majorArtist);
+
+    if(this instanceof CD)
+
+      System.out.println("On CD");
+
+    if(this instanceof DVD)
+
+      System.out.println("On DVD");
+
+    System.out.println("Number of plays: " + numOfPlays);
+
+    numOfPlays++;
+
   }
   
 public String toString() {
@@ -99,7 +110,7 @@ public boolean equals(Object o)
       {
         Media other = (Media) o;
         eq = super.equals(other) &&
-          other.numOfPlays == numOfPlays && other.playTime == playTime && other.numItems == numItems
+          other.numOfPlays == numOfPlays && other.playTime == playTime //&& other.numItems == numItems
           && other.majorArtist.equals(majorArtist)
           && other.title.equals(title);
  }
@@ -136,7 +147,7 @@ public Artist[] multiArtistPrompt(String memT) {
 	    return art;
 }
 
-public String artyMethod(Artist[] artists) {
+public String artyMethod(Artist[] artists) { //arty Takes artist array, calls artist to string, concatenates
 String arty;
 arty="";
 for  (int i =0; i<artists.length;i++)

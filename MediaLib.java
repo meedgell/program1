@@ -4,7 +4,9 @@
  * @version 11/1/2020
  * @Uses Audio/CD, Video/DVD, Artist and Media classes 
  */
- 
+ package mediali;
+
+
 import java.util.Scanner;
 
 public class MediaLib {

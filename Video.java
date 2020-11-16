@@ -4,7 +4,7 @@
  * Date: 11/4/2020
  * Inherits from Media.
  */
-//package mediali;
+package mediali;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -12,14 +12,14 @@ import java.util.Scanner;
 public class Video extends Media
 {
   protected Artist[] supportingArtists=new Artist[1];
-  private int numActors;
-  private Artist director;
-  private int rating;
+  protected int numActors;
+  protected Artist director;
+  protected int rating;
   private boolean go;
   private Integer i;
   private String c;
   
-  Scanner sc = new Scanner(System.in);
+  
   
   //Constructors
   public Video()
@@ -27,6 +27,8 @@ public class Video extends Media
     //Null Constructor
   {
     super();
+    
+   Scanner sc = new Scanner(System.in);
    
     supportingArtists = multiArtistPrompt("supporting artist");    
 
@@ -42,7 +44,7 @@ public class Video extends Media
   }
   
   
-  public Video (String title, Artist majorArtist, int playTime, int numPlays, Artist[] sa, int na, Artist dir, int rate)
+  /*public Video (String title, Artist majorArtist, int playTime, int numPlays, Artist[] sa, int na, Artist dir, int rate)
   {
     super (); //rearranged params to match Media's constructor params
     
@@ -50,7 +52,7 @@ public class Video extends Media
     numActors = na;
     director = dir;
     rating = rate;
-  }
+  }*/
   
   
   
@@ -78,17 +80,14 @@ public class Video extends Media
   //ToString
   public String toString()
   {
-      String Arty;
-      Arty="";
-      for  (int i =0; i<supportingArtists.length;i++)
-    	  
-       
-      {Arty=Arty+supportingArtists[i].toString();}
+
       
-    return super.toString()  +"\nSupporting Artists: " + Arty + 
+    return "404 Error:VideoTostring";
+            
+            /*super.toString()+"\nSupporting Artists: " + Arty + 
       "\nNumber of Actors: " + numActors + 
       "\nDirector: " + director.toString() + 
-      "\nRating: " + rating;
+      "\nRating: " + rating;*/
    
   }
   
@@ -118,7 +117,11 @@ public class Video extends Media
   public void playMedia()
   {
     super.playMedia();
-    System.out.println("Featuring: " + supportingArtists.toString());
+    System.out.println("Featuring: ");
+    
+    for (int i=0;i<numActors;i++)
+        {System.out.println(supportingArtists[i].toString());}          
+               
     System.out.println("Directed by: " + director.toString());
     System.out.println("MPA rating: " + rating);
   }

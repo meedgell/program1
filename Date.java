@@ -1,4 +1,4 @@
-// package mediali;
+ package mediali;
  
  
 import java.util.Scanner;
