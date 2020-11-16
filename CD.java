@@ -1,10 +1,15 @@
+//CD.java
+//Media application project
+//Michelle Frankot
+//11/16/2020
+
+
 package mediali;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
-//CD.java
-//Media application project
+
 
 public class CD extends Audio {
   
@@ -17,37 +22,23 @@ public class CD extends Audio {
   private String c;
   
   //constructors
-  /*public CD(Artist artist, int numOfPlays, String title, int playTime, Artist[] gMem, int nMem, 
-               Artist prod, String[] st, int nt, int pt, String sTitle[], int nTitle, int pTime) 
-  {
-  super(artist, numOfPlays, title, playTime, gMem, nMem, prod);
-     songTitles = st;
-     numTitles = nTitle;
-     playTime = pTime;
-  }
-  */
+  
   public CD() //null constructor
   {
     super();
     Scanner sc = new Scanner(System.in);
-   // System.out.println("Please enter the numer of song titles");
-    //numTitles = sc.nextInt();
-   //System.out.println("Please enter the song title you wish to play");
-    //for(int i = 0; i < numTitles; i++) {  //continue asking for titles until number of titles is reached
-    //songTitles[i] = sc.nextLine();
-    //}
     
     go=true;
     i=0;
     while (go)
     {
-        System.out.println("A to add track Info or X when complete:");
+        System.out.println("Enter 'A' to add a song or enter 'X' if you have finished entering songs:");
         c=sc.next();
 
         if (c.equalsIgnoreCase("A"))
         {
             
-            System.out.println("Enter track title:");
+            System.out.println("Enter the song's title:");
             songTitles[i] = sc.next(); //this will only get the first word. We know.
             songTitles=Arrays.copyOf(songTitles, songTitles.length+1);
             i++;
@@ -63,13 +54,9 @@ public class CD extends Audio {
     
     numTitles=i;
     
-    //System.out.println("Please enter the album's playtime in number of minutes:");
-    //playTime = sc.nextInt();
-    
   }
     
-  //accessors
-    //public Artist getArtist(){return artist;} 
+  //accessr
     public int getnumOfPlays(){return numOfPlays;} 
     public double getplayTime(){return playTime;} 
     public String getTitle(){return title;} 
@@ -85,18 +72,6 @@ public class CD extends Audio {
         return "CD Title: " + title + "\nMajor Artist: " + majorArtist 
                   + "\nproducer: " + producer + "\nTracks("+numTitles+"): " + titles +"\n\n\nGroup Members: \n" + artyMethod(groupMembers)
                   + "\nPlaytime: " + playTime +  "\nNumber of Plays: " + numOfPlays;
-  
-
-//return "CD Title: " + title + "\nMajor Artist: " + majorArtist 
-                 // + "\nSupporting Actors: " + "\n" + artyMethod(groupMembers);
-              
-              /*super.toString() + "\nSong Title: " + songTitles +
-     "\nPlay Time: " + playTime + "\nNumber of Titles:" + numTitles;*/
-      
-      
-      
-      
-      
       
   }
     

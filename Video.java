@@ -1,7 +1,7 @@
 /* Video.java
  * Application Project 1 - Video Component
  * Author: Edward France
- * Date: 11/4/2020
+ * Date: 11/16/2020
  * Inherits from Media.
  */
 package mediali;
@@ -33,28 +33,15 @@ public class Video extends Media
     supportingArtists = multiArtistPrompt("supporting artist");    
 
     numActors = supportingArtists.length;
-    System.out.println("Who is the Director?:");
+    System.out.println("Enter the details of the director: ");
     director = new Artist();
     
     //System.out.println();
             
-    System.out.println("What is the rating?:");
+    System.out.println("Enter the MPA rating?:");
     rating = sc.nextInt();
     
   }
-  
-  
-  /*public Video (String title, Artist majorArtist, int playTime, int numPlays, Artist[] sa, int na, Artist dir, int rate)
-  {
-    super (); //rearranged params to match Media's constructor params
-    
-    supportingArtists = sa;
-    numActors = na;
-    director = dir;
-    rating = rate;
-  }*/
-  
-  
   
   //Accessors
   public Artist[] getSupportingArtists()
@@ -79,16 +66,8 @@ public class Video extends Media
   
   //ToString
   public String toString()
-  {
-
-      
-    return "404 Error:VideoTostring";
-            
-            /*super.toString()+"\nSupporting Artists: " + Arty + 
-      "\nNumber of Actors: " + numActors + 
-      "\nDirector: " + director.toString() + 
-      "\nRating: " + rating;*/
-   
+  { 
+    return "404 Error:VideoTostring";//We liked calling it a 404 error.
   }
   
   //Print Methods

@@ -1,7 +1,7 @@
 /*DVD.java
  * Application Project 1 - DVD Component
  * Author: Edward France
- * Date: 11/5/2020
+ * Date: 11/16/2020
  * Inherits from Video
  */
 package mediali;
@@ -17,39 +17,28 @@ public class DVD extends Video
    
   Scanner sc = new Scanner(System.in);
   //Constructor
-  /*public DVD (String title, Artist majorArtist, int playTime, int numPlays, Artist[] sa, int na, Artist dir, int rate, boolean widescreen, boolean tv, String so)
-  {
-    super(title, majorArtist, playTime, numPlays, sa, na, dir, rate);
-    wideScreenFormat = widescreen;
-    tvFormat = tv;
-    soundOptions = so;
-  }*/
+ 
   
   //Null Constructor
   public DVD()
   {
     super();
     
-    System.out.println("wideScreenFormat?(Y/N):");
+    System.out.println("Is the DVD in Widescreen format?(Y/N):");
     b=sc.next();
     //System.out.println("you said:"+b);
     wideScreenFormat = YNTF(b.substring(0,1));
     
-    System.out.println("tvFormat?(Y/N):");
+    System.out.println("Is the DVD in TV format?(Y/N):");
     b=sc.next();
     //System.out.println("you said:"+b);
     
     tvFormat = YNTF(b.substring(0,1));
     
-    
-    
-    System.out.println("soundOptions?:");
+    System.out.println("What are the DVD's sound options?");
     soundOptions = sc.next();
     
-    System.out.println("Print sound options " + soundOptions);
-    
-    
-    
+    System.out.println("Sound options: " + soundOptions);
     
   }
   
@@ -59,14 +48,9 @@ public class DVD extends Video
       
       TF=false;
       
-      //System.out.println("Y "+in+" "+(in.equals("Y")));
-      
       if (in.equalsIgnoreCase("Y"))
       {TF=true;}
-      //else if (in=="N")
-      //{TF=false;}
-          
-          
+   
       return TF;
   }
   
@@ -90,15 +74,10 @@ public class DVD extends Video
   //ToString
   public String toString()
   {
-   // return super.toString()		+ "\nWidescreen Format: " + wideScreenFormat + "\nTV Format: " + tvFormat + "\nSound Options: " + soundOptions;
-    //removed toString call on wideScreenFormat and tvFormat because they are booleans (True or False)
-
-	      
 	  return "DVD Title: " + title + "\nMajor Artist: " + majorArtist 
                   + "\nDirector: " + director + "\nSupporting Actors("+numActors+"): " + "\n" + artyMethod(supportingArtists)
                   + "\nRating: " + rating+ "\nPlaytime: " + playTime+ "\nSoundO Options: " + soundOptions+ "\nWide Screen: " 
                   + wideScreenFormat + "\nTV format: " + tvFormat+ "\nNumber of Plays: " + numOfPlays;
-  
   }
   
   //PlayMedia
@@ -111,6 +90,7 @@ public class DVD extends Video
       System.out.println("in tv screen format. ");
     System.out.println("Sound options: " + soundOptions);
   }
+  
   //Print Methods
   public void printTVFormat()
   {

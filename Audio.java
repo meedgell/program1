@@ -1,5 +1,7 @@
 //Audio.java
 //Media application project
+//Michelle Frankot
+//11/16/2020
 package mediali;
 
 import java.util.Arrays;
@@ -16,44 +18,18 @@ public class Audio extends Media {
   private String c;
   
   //constructors
-  /*public Audio (Artist artist, int numOfPlays, String title, int playTime, Artist[] gMem, int nMem, Artist prod)
-  {
-    
-    super();
-    groupMembers = gMem;
-    numMems = nMem;
-    producer = prod;
-  }*/
+  
   
   public Audio() //null constructor
   {
     super();
     Scanner sc = new Scanner(System.in);
     
-    /*go=true;
-    i=0;
-    
-    while (go)
-    {
-        System.out.println("A to add Supporting artist or X when complete:");
-        c=sc.next();
-
-        if (c.equals("A"))
-        {
-            groupMembers[i] = new Artist(); 
-            groupMembers=Arrays.copyOf(groupMembers, groupMembers.length+1);
-            i++;
-        }else
-        {
-        go=false;
-        }
-    }*/  
-    
    groupMembers= multiArtistPrompt("Group Members");
     
     
     
-    System.out.println("Please enter the name of the album producer");
+    System.out.println("Enter the details of the album's producer:");
     producer = new Artist();
 
   }
@@ -66,11 +42,8 @@ public class Audio extends Media {
     //toString method
     public String toString(){
         
-      return "404 Error:AudioTostring";
-
-//super.toString() + "\nGroup Members: " + groupMembers + "\nNumber of Members: " + numMems + "\nProducer" + producer;
-  
-    
+      return "404 Error:AudioTostring";//We liked calling it a 404 error.
+ 
     }
     
     //playMedia method

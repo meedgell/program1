@@ -2,7 +2,7 @@
 Artist.Java
 Vince Forrester
 Artist Class of Media Library Application
-11/08/2020
+11/16/2020
  */
 
 package mediali;
@@ -32,7 +32,7 @@ public Artist ()
     
 System.out.println("Artist Entry");
 
-System.out.print("First Name:");  
+System.out.print("Enter the Artist's First Name:");  
 first=sc1.nextLine();
 
 
@@ -46,7 +46,7 @@ url="";
 /*
 
 
-System.out.print("Last Name:");
+System.out.print("Enter the Artist's Last Name:");
 last=sc1.nextLine();
 
 go=false;
@@ -54,7 +54,7 @@ go=false;
 while (!go)
 {try
 {
-    System.out.println("Date of Birth(mm/dd/yyyy):");
+    System.out.println("Enter the Artist's date of birth (mm/dd/yyyy):");
     birthDate.getDate();
     go=true;
 }
@@ -63,17 +63,17 @@ while (!go)
     System.out.println(ex.getMessage());
     System.err.println(ex);
     go=false;
-    System.out.println("Illegal value entered please re-enter");
+    System.out.println("The values you entered were invalid. Please reenter the Artist's date of birth:");
 }
 }                 
                    
                    
                    
                    
-System.out.print("Twitter Handle:");
+System.out.print("Twitt Handle:");
 twitterHandle=sc1.next();
 
-System.out.print("URL:");
+System.out.print("Enter the Artist's URL:");
 url=sc1.next();
         
 */      

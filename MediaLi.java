@@ -1,8 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//MediaLi.Java
+//Martina Edgell
+//11/16/2020
 
 package mediali;
 
@@ -207,7 +205,7 @@ public class MediaLi {
       System.out.println("Title not found.");
     }
     else {
-    System.out.println("Number of plays for title " + title + " is " + mediaLib[index].getNumOfPlays());
+    System.out.println("Number of plays for " + title + " is " + mediaLib[index].getNumOfPlays());
     }
   }
   

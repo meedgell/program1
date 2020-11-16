@@ -1,6 +1,6 @@
 /* Media.java
- * @author Solomon Tsehay
- * @since 11/1/20
+ * Solomon Tsehay
+ * 11/16/20
  */
 
 package mediali;
@@ -95,11 +95,8 @@ public void setNumOfPlays(int aNumOfPlays)
   }
   
 public String toString() {
-String result = "404 Error";
-// "Title: " + title + 
-// "\nArtist: " + majorArtist.toString() +
-// "\nTime: " + playTime + 
-// "\nNumber of plays: " + numOfPlays;
+String result = "404 Error";//We liked calling it a 404 error.
+
  return result;
 }
 
@@ -125,7 +122,7 @@ public Artist[] multiArtistPrompt(String memT) {
 	    int i=0;
 	    while (go)
 	    {
-	        System.out.println("A to add " + memT + " or X when complete:");
+	        System.out.println("Enter 'A' to add a " + memT + " or X when you are finished:");
 	        u=sc.next();
 
 	        if (u.equalsIgnoreCase("A"))
