@@ -4,7 +4,7 @@
  * Date: 11/16/2020
  * Inherits from Video
  */
-package mediali;
+//package mediali;
 
 import java.util.Scanner;
 
@@ -74,7 +74,7 @@ public class DVD extends Video
   //ToString
   public String toString()
   {
-	  return "DVD Title: " + title + "\nMajor Artist: " + majorArtist 
+   return "DVD Title: " + title + "\nMajor Artist: " + majorArtist 
                   + "\nDirector: " + director + "\nSupporting Actors("+numActors+"): " + "\n" + artyMethod(supportingArtists)
                   + "\nRating: " + rating+ "\nPlaytime: " + playTime+ "\nSoundO Options: " + soundOptions+ "\nWide Screen: " 
                   + wideScreenFormat + "\nTV format: " + tvFormat+ "\nNumber of Plays: " + numOfPlays;

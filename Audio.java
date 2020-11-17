@@ -2,7 +2,7 @@
 //Media application project
 //Michelle Frankot
 //11/16/2020
-package mediali;
+//package mediali;
 
 import java.util.Arrays;
 import java.util.Scanner;

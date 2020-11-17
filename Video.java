@@ -4,11 +4,12 @@
  * Date: 11/16/2020
  * Inherits from Media.
  */
-package mediali;
+//package mediali;
 
-import java.util.Arrays;
-import java.util.Scanner;
-
+//import java.util.Arrays;
+//import java.util.Scanner;
+import java.util.*;//"Professor Tanner wont like this" - Martina
+        
 public class Video extends Media
 {
   protected Artist[] supportingArtists=new Artist[1];
@@ -37,9 +38,31 @@ public class Video extends Media
     director = new Artist();
     
     //System.out.println();
-            
-    System.out.println("Enter the MPA rating?:");
+   boolean go;
+go=false;
+
+//while (!go)
+//{try
+//{
+    System.out.println("Enter the MPA rating(1-10):");
     rating = sc.nextInt();
+ /*   System.out.println(sc.nextInt());
+    
+    go=true;
+}
+    catch (NumberFormatException ex)//|InputMismatchException
+{
+    
+    sc.close();
+    sc = new Scanner(System.in);
+    System.out.println(ex.getMessage());
+    System.err.println(ex);
+    go=false;
+    System.out.println("The values you entered were invalid. Please reenter the MPA rating(1-10):");
+    
+}
+}  
+    */
     
   }
   

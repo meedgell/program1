@@ -2,7 +2,9 @@
 //Martina Edgell
 //11/16/2020
 
-package mediali;
+//were not flying where falling... with style
+
+//package mediali;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -154,7 +156,7 @@ public class MediaLi {
    * Uses Media's toString().
    */
   public static void listMedia() {
-    for(int i = 0; i < mediaLib.length-1; i++) {
+    for(int i = 0; i < mediaLib.length-2; i++) {
       System.out.println(mediaLib[i].toString() + "\n");
     }
   }

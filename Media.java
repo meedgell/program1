@@ -3,7 +3,7 @@
  * 11/16/20
  */
 
-package mediali;
+//package mediali;
  
 import java.util.Scanner;
 import java.util.Arrays;
@@ -26,8 +26,37 @@ Scanner sc = new Scanner(System.in);
   numOfPlays = 0;
   System.out.println("Enter the title: "); //needs to prompt for title and playtime
   title = sc.nextLine();
-  System.out.println("Enter the playtime in minutes: ");
-  playTime = Integer.valueOf(sc.next()); //parse as int
+  
+  
+  
+  boolean go;
+go=false;
+
+while (!go)
+{try
+{
+    System.out.println("Enter the playtime in minutes:");
+    playTime = Integer.valueOf(sc.next());
+    go=true;
+}
+    catch (Exception ex)
+{
+    System.out.println(ex.getMessage());
+    System.err.println(ex);
+    go=false;
+    System.out.println("The values you entered were invalid. Please reenter the playtime in minutes:");
+}
+  
+    
+    
+  }
+   //parse as int
+  
+  
+  
+  
+  
+  
  }
 
  public Media(String aTitle, Artist aMajorArtist, int aNumOfPlays, int aPlayTime)
@@ -95,7 +124,7 @@ public void setNumOfPlays(int aNumOfPlays)
   }
   
 public String toString() {
-String result = "404 Error";//We liked calling it a 404 error.
+String result = "404 Error";//We liked calling it a 404 error!
 
  return result;
 }
@@ -116,43 +145,40 @@ public boolean equals(Object o)
 }
 
 public Artist[] multiArtistPrompt(String memT) {
-	 boolean go=true;
-	 Artist[] art = new Artist[1];
-	 String u; //user input
-	    int i=0;
-	    while (go)
-	    {
-	        System.out.println("Enter 'A' to add a " + memT + " or X when you are finished:");
-	        u=sc.next();
+  boolean go=true;
+  Artist[] art = new Artist[1];
+  String u; //user input
+     int i=0;
+     while (go)
+     {
+         System.out.println("Enter 'A' to add a " + memT + " or X when you are finished:");
+         u=sc.next();
 
-	        if (u.equalsIgnoreCase("A"))
-	        {
-	             art[i] = new Artist(); 
-	             art=Arrays.copyOf(art, art.length+1);
-	             //System.out.println("\n" + art[i] + "\n");
-	            i++;
-	        }else
-	        {
-	        go=false;
-	        }
-	    }
-	    
-	    art=Arrays.copyOf(art, art.length-1);   
-	    
-	    //System.out.println("\n" + "art length " + art[0].toString());
-	    
-	    return art;
+         if (u.equalsIgnoreCase("A"))
+         {
+              art[i] = new Artist(); 
+              art=Arrays.copyOf(art, art.length+1);
+             i++;
+         }else
+         {
+         go=false;
+         }
+     }
+     
+     art=Arrays.copyOf(art, art.length-1);   
+
+     
+     return art;
 }
 
 public String artyMethod(Artist[] artists) { //arty Takes artist array, calls artist to string, concatenates
 String arty;
 arty="";
 for  (int i =0; i<artists.length;i++)
-	  
- 
+   
 {arty=arty+ artists[i].toString();}
 
 return arty;
-		
+  
 }
 }

@@ -4,7 +4,7 @@
 //11/16/2020
 
 
-package mediali;
+//package mediali;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -32,13 +32,14 @@ public class CD extends Audio {
     i=0;
     while (go)
     {
-        System.out.println("Enter 'A' to add a song or enter 'X' if you have finished entering songs:");
+        System.out.println("Enter 'A' to add a song or enter 'X' if you have finished entering songs");
+        
         c=sc.next();
 
         if (c.equalsIgnoreCase("A"))
         {
             
-            System.out.println("Enter the song's title:");
+            System.out.println("Enter the song's title(underscore \"_\" for space \" \"):");
             songTitles[i] = sc.next(); //this will only get the first word. We know.
             songTitles=Arrays.copyOf(songTitles, songTitles.length+1);
             i++;

@@ -5,7 +5,7 @@ Artist Class of Media Library Application
 11/16/2020
  */
 
-package mediali;
+//package mediali;
 
 import java.util.Scanner;
 import java.io.IOException;
@@ -32,19 +32,19 @@ public Artist ()
     
 System.out.println("Artist Entry");
 
-System.out.print("Enter the Artist's First Name:");  
-first=sc1.nextLine();
-
-
-Date dai = new Date(03,06,2008);	
-last="hhhhh";	
-birthDate=dai;	
-twitterHandle="";	
-url="";
-
 
 /*
+first="a";
+Date dai = new Date(03,06,2008); 
+last="hhhhh"; 
+birthDate=dai; 
+twitterHandle=""; 
+url="";
+*/
 
+
+System.out.print("Enter the Artist's First Name:");  
+first=sc1.nextLine();
 
 System.out.print("Enter the Artist's Last Name:");
 last=sc1.nextLine();
@@ -75,8 +75,7 @@ twitterHandle=sc1.next();
 
 System.out.print("Enter the Artist's URL:");
 url=sc1.next();
-        
-*/      
+           
 }
 
 
@@ -119,7 +118,7 @@ public String toString()
 //make equals on last & first name and dob so user won't have to enter in everything every time 
 public boolean aEquals(Artist a1)
     {
-        System.out.print(a1.getFirst());//last+" "+a1.getLast()+" "+first+" "+a1.getFirst());
+        
      return ( last.equals(a1.getLast()) && first.equals(a1.getFirst()));
     }
     
